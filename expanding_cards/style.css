@@ -1,0 +1,60 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 85vw;
+}
+
+.panel {
+    position: relative;
+    height: 80vh;
+    border-radius: 50px;
+    margin: 10px;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 0.5;
+    cursor: pointer;
+    transition: flex .7s ease-in;
+}
+
+.panel h3 {
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity .3s ease-in .5s;
+}
+
+.panel.active {
+    flex: 4;
+}
+
+.panel.active h3 {
+    opacity: 1;
+}
+
+@media screen and (max-width:480px) {
+    .container {
+        width: 100vw;
+    }
+    .panel:nth-of-type(4), .panel:nth-of-type(5) {
+        display: none;
+    }
+}
