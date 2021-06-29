@@ -12,7 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    font-family: 'muli', sans-serif;
+    font-family: 'nunito', sans-serif;
 }
 
 .btn {
@@ -42,8 +42,8 @@ body {
 .progress-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3rem;
-    width: 350px;
+    margin-bottom: 6rem;
+    width: 450px;
     position: relative;
 }
 
@@ -68,10 +68,11 @@ body {
     transform: translate(0%, -50%);
     background-color: rgb(114, 241, 235);
     z-index: -1;
-    transition: .8s cubic-bezier(1,-0.01, 0, 0.99);
+    transition: .6s cubic-bezier(1,-0.01, 0, 0.99);
 }
 
 .step {
+    position: relative;
     background-color: #fff;
     color: #999;
     border-radius: 50%;
@@ -83,8 +84,26 @@ body {
     transition: 1s cubic-bezier(1,-0.01, 0, 0.99) .2s;
 }
 
+.step:nth-child(2)::before, 
+.step:nth-child(3)::before, 
+.step:nth-child(4)::before, 
+.step:nth-child(5)::before {
+    content: attr(data-content); /*Content will be dynamically added via javascript*/
+    position: absolute;
+    top: 40px;
+    color: #888;
+    text-align: center;
+    font-size: 1rem;
+}
+
 .step.active {
     background-color:rgb(114, 241, 235) ;
     color: #fff;
     border-color: rgb(114, 241, 235);
+}
+
+.step.active::before {
+    color: rgb(31, 45, 75);
+    font-weight: bold;
+    transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1) .6s;
 }
