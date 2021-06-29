@@ -68,7 +68,7 @@ body {
     transform: translate(0%, -50%);
     background-color: rgb(114, 241, 235);
     z-index: -1;
-    transition: .4s cubic-bezier(1,-0.01, 0, 0.99);
+    transition: .8s cubic-bezier(1,-0.01, 0, 0.99);
 }
 
 .step {
@@ -80,7 +80,7 @@ body {
     width: 25px;
     display: grid;
     place-items: center;
-    transition: .4s cubic-bezier(1,-0.01, 0, 0.99);
+    transition: 1s cubic-bezier(1,-0.01, 0, 0.99) .2s;
 }
 
 .step.active {
