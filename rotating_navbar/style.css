@@ -6,18 +6,45 @@
     text-decoration: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'nunito', sans-serif;
     overflow-x: hidden;
     background-color: #333;
-    color: #222;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+#scrollpath {
+    position: fixed;
+    top: 0;
+    right:0;
+    width: 10px;
+    height: 100%;
+    background-color: rgb(209, 209, 209);
+    z-index: 98;
+}
+
+#progressbar {
+    position: fixed;
+    top: 0;
+    right:0;
+    width: 10px;
+    height: 0;
+    background: rgb(255,165,0);
+    background: linear-gradient(45deg, #ffa500 40%, #dd6150 90%);
+    z-index: 100;
 }
 
 .btn {
     padding: .5rem 1rem;
     border-radius: 5px;
     border: 0;
-    background-color: orange;
+    background-color: #ffa500;
     color: #fff;
     font-size: 1rem;
     margin: 0 5px;
@@ -123,6 +150,39 @@ body {
     line-height: 1.6;
 }
 
+.content .article .article-text::selection {
+    background-color: #dd6150;
+    color: #fff;
+}
+
+.content .article .article-text .highlight {
+    position: relative;
+    transition: .2s ease-in;
+    z-index: 3;
+}
+
+.content .article .article-text .highlight::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    background-color: rgb(221, 97, 80);;
+    height: 6px;
+    transform-origin:bottom;
+    transform: scaleY(1);
+    width: 100%;
+    transition: .2s ease-in;
+    z-index: -2;
+}
+
+.content .article .article-text .highlight:hover::before {
+    transform: scaleY(4);
+} 
+
+.content .article .article-text .highlight:hover {
+    color: #fff;
+} 
+
+
 .content .showcase {
     width: 100%;
 }
@@ -162,7 +222,31 @@ body {
 }
 
 footer {
-    background-color: orange;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 100%;
     padding: 2rem 0;
+    background-color: orange;
+    z-index: 99;
+}
+
+footer .top {
+    color: orange;
+    background: #fff;
+    height: 40px;
+    line-height: 45px;
     text-align: center;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+footer .top:hover i{
+    transform: rotate(360deg);
+}
+
+footer .top i {
+    font-size: 1.3rem;
+    transition: .4s ease-in-out;
 }
