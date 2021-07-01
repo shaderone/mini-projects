@@ -75,6 +75,11 @@ body {
     position: fixed;
     top: -100px;
     left: -100px;
+    transition: .4s ease-in;
+}
+
+.container.show-nav .menu-container {
+    transform: rotate(-70deg);
 }
 
 .menu-icons {
@@ -93,13 +98,13 @@ body {
 }
 
 .menu-icons .icon#open {
-    top: 60%;
+    top: 65%;
     left: 65%;
 }
 
 .menu-icons .icon#close {
-    top: 60%;
-    left: 50%;
+    top: 65%;
+    left: 35%;
     transform: rotate(90deg);
     transform-origin:top left;
 }

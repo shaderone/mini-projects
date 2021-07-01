@@ -68,7 +68,6 @@
         const progressBar = document.querySelector('#progressbar')
 
         const activeHeight = document.body.scrollHeight - window.innerHeight
-        console.log(activeHeight);
 
         window.onscroll = () => {
             const progressBarLenght = (window.pageYOffset / activeHeight) * 100
