@@ -8,7 +8,6 @@
 
 :root {
     --width: 300px;
-    --deg: 360deg;
 }
 
 body {
@@ -47,7 +46,7 @@ body {
     border-radius: 50%;
     background-color: rgb(46, 46, 46);
     cursor: pointer;
-    transition:transform .3s linear;
+    transition:transform .3s ease;
 }
 
 .btn i {
@@ -55,11 +54,6 @@ body {
     font-size: 1rem;
     transition: transform .5s ease ;
 }
-
-.btn:hover i{
-    transform: rotate(360deg);
-}
-
 
 .searchBox.active .search{
     width: var(--width);
