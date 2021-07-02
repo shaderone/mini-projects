@@ -1,0 +1,32 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'poppins','nunito',serif;
+}
+
+.banner {
+    background: url("https://i.picsum.photos/id/1025/1920/1080.jpg?hmac=cx-5UC_HcExBANyHFTlwG9-5Drw4emdHvXY2sLThpYM") center center / cover;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    height: calc(100vh + 60px);
+    width: calc(100vw + 60px);
+    z-index: -1;
+    filter: blur(0px);
+}
+
+.loading-info {
+    color: #fff;
+    font-size: 1.25rem;
+}
