@@ -66,11 +66,6 @@ body {
     transform: rotate(-20deg);
 }
 
-.container.show-nav + .menu-items li a {
-    transform: translateX(0);
-    transition-delay: .3s;
-}
-
 .menu-container {
     position: fixed;
     top: -100px;
@@ -200,15 +195,18 @@ body {
     position: fixed;
     bottom: 40px;
     left: 20px;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .nav-container .menu-items li a {
     display: inline-block;
     color: #fff;
     padding: .5rem 0;
+}
+
+.nav-container .menu-items li {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-200%);
     transition: transform .6s linear, opacity .6s linear;
 }
 
@@ -225,6 +223,13 @@ body {
 .nav-container .menu-items li a i {
     margin-right: .8rem;
 }
+
+.container.show-nav + .nav-container .menu-items li  {
+    opacity: 1;
+    transform: translateX(0); 
+    transition-delay: .3s;
+}
+
 
 footer {
     display: flex;
@@ -254,4 +259,14 @@ footer .top:hover i{
 footer .top i {
     font-size: 1.3rem;
     transition: .4s ease-in-out;
+}
+
+/* script to block text hiligtion */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
