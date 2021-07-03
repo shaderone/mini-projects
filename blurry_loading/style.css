@@ -6,6 +6,32 @@
     text-decoration: none;
 }
 
+:root {
+    --muted: #bbbbbb;
+    --white: #fff;
+    --twitter-bg: #178994;
+    --facebook-bg: #5061A6;
+    --checkbox-active: #1EEAAF;
+    --otherText: #7A9ABC;
+}
+
+@font-face {
+    font-family: 'Headliner';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/Headliner.woff') format('woff');
+}
+@font-face {
+    font-family: 'Danger';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/DangerNeueRough-Regular.woff') format('woff');
+}
+
+.danger-font {
+    font-family: 'Danger' ,serif;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -16,13 +42,72 @@ body {
 }
 
 .banner {
-    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url("./bg.jpg") center center / cover;
+    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url("./assets/bg.jpg") center center / cover;
     position: absolute;
     top: -30px;
     left: -30px;
     height: calc(100vh + 60px);
     width: calc(100vw + 60px);
     z-index: -1;
+}
+
+.banner .banner-page {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    min-height: 100vh;
+    width: 100vw;
+    /* background-color: #1EEAAF; */
+}
+
+.banner .top {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    margin: 0 auto;
+    /* background-color: yellow; */
+}
+
+.banner .top .version-info{
+    position: relative;
+    top: 20px;
+    left: 20px;
+    color: var(--muted);
+}
+
+.banner .top .icons {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 25px;
+    right: 20px;
+}
+
+.banner .top .icons .icon {
+    position: relative;
+    margin: 10px 0;
+    font-size: .9rem;
+    color: var(--muted);
+    /* background-color: #175c48; */
+}
+
+.banner .top .icons .icon::before {
+    content: attr(data-content);
+    position: absolute;
+    white-space: pre;
+    display: inline;
+    bottom: -15px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+}
+
+.banner .icons .icon .icon-img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(90, 90, 90);
+    border-radius: 50%;
+    padding: .4rem;
 }
 
 .loading-info {
