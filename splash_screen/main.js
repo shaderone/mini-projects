@@ -7,7 +7,21 @@ const loading = () => {
     progress++
     if(progress === 100) {
         clearInterval(interval)
-        banner.style.zIndex = 2;
+        const themeSong = document.querySelector('audio')
+        themeSong.play()
+        const alertBox = document.querySelector('.alert')
+        if (themeSong.paused) {
+            if(alertBox) {
+                alertBox.classList.add('active')
+            }
+        }
+        
+        const close = document.querySelector('.close')
+        close.addEventListener('click', () => {
+            alertBox.classList.remove('active');
+        })
+        
+        banner.style.zIndex = 5;
     };
 
     progressText.innerText = `${progress}% Loading...`;
