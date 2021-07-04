@@ -9,7 +9,19 @@ const loading = () => {
         clearInterval(interval)
         const themeSong = document.querySelector('audio')
         themeSong.play()
-        banner.style.zIndex = 2;
+        const alertBox = document.querySelector('.alert')
+        if (themeSong.paused) {
+            if(alertBox) {
+                alertBox.classList.add('active')
+            }
+        }
+        
+        const close = document.querySelector('.close')
+        close.addEventListener('click', () => {
+            alertBox.classList.remove('active');
+        })
+        
+        banner.style.zIndex = 5;
     };
 
     progressText.innerText = `${progress}% Loading...`;
