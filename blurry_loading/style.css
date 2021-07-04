@@ -67,7 +67,15 @@
     vertical-align: middle;
 }
 
+.hide {
+    visibility: hidden; 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
 body {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,19 +91,19 @@ body {
     left: -30px;
     height: calc(100vh + 60px);
     width: calc(100vw + 60px);
-    z-index: 1;
+    z-index: -1;
 }
 
 .banner .banner-page {
     position: absolute;
     top: 30px;
     left: 30px;
-    min-height: 100%;
-    width: 100%;
+    height: calc(100vh - 60px);
+    width: 100vw;
     /* background-color: #1EEAAF; */
 }
 
-.banner .top {
+.banner-page .top {
     display: flex;
     justify-content: space-between;
     width: 90vw;
@@ -103,14 +111,14 @@ body {
     /* background-color: yellow; */
 }
 
-.banner .top .version-info{
+.top .version-info{
     position: relative;
     top: 20px;
-    left: 0px;
+    left: 10px;
     color: var(--muted);
 }
 
-.banner .top .icons {
+.top .icons {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -118,7 +126,7 @@ body {
     right: 25px;
 }
 
-.banner .top .icons .icon {
+.icons .icon {
     position: relative;
     margin: 10px 0;
     font-size: .9rem;
@@ -126,7 +134,7 @@ body {
     /* background-color: #175c48; */
 }
 
-.banner .top .icons .icon::before {
+.icons .icon::before {
     content: attr(data-content);
     position: absolute;
     white-space: pre;
@@ -136,7 +144,7 @@ body {
     transform: translate(-50%, 0px);
 }
 
-.banner .icons .icon .icon-img {
+.icons .icon .icon-img {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -149,7 +157,7 @@ body {
     position: relative;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, 30%);
+    transform: translate(-50%, -50%);
     /* background-color: rgb(194, 191, 180); */
 }
 
@@ -171,13 +179,15 @@ body {
     text-transform: uppercase;
 }
 
-.text .title-text:nth-child(1){
-    background: url('assets/title_texture.jpg') right center / cover;
-    color: var(--dark);
-    text-transform: uppercase;
+.title-text:nth-child(1), .title-text:nth-child(3) {
     display: inline-block;
     padding: 0 .8rem;
     border-radius: 2px;
+} 
+
+.text .title-text:nth-child(1){
+    background: url('assets/title_texture.jpg') right center / cover;
+    color: var(--dark);
 }
 
 .text .title-text:nth-child(2) {
@@ -189,14 +199,8 @@ body {
 }
 
 .text .title-text:nth-child(3) {
-    /* background: url('assets/mobilebg.jpg') bottom / cover; */
-    background: rgb(178,57,36);
     background: linear-gradient(180deg, rgba(178,57,36,1) 45%, rgb(43, 5, 1) 100%);
     color: var(--dark);
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 0 .8rem;
-    border-radius: 2px;
 }
 
 .content .login-options {
@@ -235,8 +239,82 @@ body {
 
 }
 
+.banner-page .footer {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    text-align: center;
+    /* background-color: #178994; */
+}
+
+.footer .terms .form-group {
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.form-group .newBox {
+    display: inline-block;
+    position: relative;
+    width: 13px;
+    height: 13px;
+    left: 0;
+    bottom: 30%;
+    transform-origin: center bottom;
+    transform: translate(-50%, 0) rotate(-45deg);
+    border: 2px solid var(--dark);
+    outline: 1px solid rgb(167, 167, 167);
+    background: var(--muted);
+}
+
+.form-group .newBox.active {
+    background: var(--checkbox-active);
+}
+
+.footer .terms label {
+    margin: 0 5px;
+    font-family: 'FFMetaPro';
+    color: var(--white);
+}
+
+.terms label span {
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.terms label span {
+    color: var(--otherText);
+}
+
+@media screen and (max-width:500px) {
+    .footer .terms .form-group {
+        display: inline;
+        margin: 0 5px;
+    }
+
+    .terms .form-group::before {
+        width: 10px;
+        height: 10px;
+    }
+
+    .footer .terms label {
+        font-size: .7rem;
+        margin: 0 5px;
+    }
+}
 
 .loading-info {
     color: #fff;
     font-size: 1.25rem;
+}
+
+.credits {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: var(--muted);
+}
+
+.credits a {
+    color: var(--muted);
 }

@@ -7,6 +7,7 @@ const loading = () => {
     progress++
     if(progress === 100) {
         clearInterval(interval)
+        banner.style.zIndex = 2;
     };
 
     progressText.innerText = `${progress}% Loading...`;
@@ -18,5 +19,14 @@ const loading = () => {
 function mapNumber(number, inMin, inMax, outMin, outMax) {
     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
-const interval = setInterval(loading, 20);
+const interval = setInterval(loading, 30);
+
+// toggle checkbox
+
+const checkboxs = document.querySelectorAll('.newBox')
+checkboxs.forEach(box => {
+    box.addEventListener('click', () => {
+        box.classList.toggle('active')
+    })
+})
 
