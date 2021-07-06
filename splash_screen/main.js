@@ -7,7 +7,7 @@ const loading = () => {
     progress++
     if(progress === 100) {
         clearInterval(interval)
-        const themeSong = document.querySelector('audio')
+        const themeSong = document.querySelector('audio.bgm')
         themeSong.play()
         const alertBox = document.querySelector('.alert')
         if (themeSong.paused) {
@@ -22,6 +22,12 @@ const loading = () => {
         })
         
         banner.style.zIndex = 5;
+        banner.addEventListener('click', () => {
+            const clickSound = document.querySelector('audio.clicksound')
+            clickSound.currentTime = 0;
+            clickSound.play()
+            return;
+        })
     };
 
     progressText.innerText = `${progress}% Loading...`;
