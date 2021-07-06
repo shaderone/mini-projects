@@ -10,7 +10,6 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .container {
@@ -37,6 +36,17 @@ body {
     color: rgb(204, 204, 204);
     box-shadow: -8px 8px 9px rgba(0, 0, 0, 0.3);
     font-family: 'nunito', 'poppins';
+    margin: 15px 0;
+    transform: translateX(400%);
+    transition: transform .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.box:nth-of-type(even) {
+    transform: translateX(-400%);
+}
+
+.box.visible {
+    transform: translateX(0%);
 }
 
 .user .name{
