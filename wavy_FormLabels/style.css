@@ -1,0 +1,111 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --muted: rgb(153, 153, 153);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+    position: relative;
+    height: 360px;
+    width: 320px;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-family:'poppins', 'nunito', serif;
+    background: #2C3E50;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.35);
+}
+
+.container img {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 128px;
+    height: 128px;
+    border: 5px solid #3596d6;
+    border-radius: 100%;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.35);
+}
+
+.form-group {
+    position: relative;
+    top: 3rem;
+}
+
+.form-group h3 {
+    color: rgb(228, 228, 228);
+}
+
+.form-group .form-control {
+    position: relative;
+    margin: 1.5rem 0;
+    width: 250px;
+    /* background-color: #fff; */
+}
+
+.form-control input {
+    width: 100%;
+    padding: 5px 0;
+    border: 0;
+    border-bottom: 2px solid var(--muted);
+    font-size: 18px;
+    color: #fff;
+    background: transparent;
+}
+
+.form-control input:focus, .form-control input:valid, .btn:focus {
+    outline: 0;
+}
+
+.loginForm .btn {
+    display: block;
+    width: 100%;
+    color: #fff;
+    background: #4791db;
+    padding: .8rem 1rem;
+    border: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 5px;
+}
+
+.form-control .btn:active {
+    transform: scale(.98);
+}
+
+.form-group .signup{
+    color: #b0bdbe;
+    margin-top: 15px;
+    font-family: 'nunito', sans serif;
+}
+
+.form-group .signup span {
+    color: #4791db;
+    cursor: pointer;
+}
+
+.form-control label {
+    color: var(--muted);
+    position: absolute;
+    top: 5px;
+    left:0;
+}
