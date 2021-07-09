@@ -9,6 +9,9 @@
 :root {
     --cola-bg-color: rgba(107, 60, 60, 0.411);
     --pepsi-bg-color: rgba(41, 43, 73, 0.411);
+
+    --hoverWidth: 75%;
+    --shrinkWidth: 25%;
 }
 
 @font-face {
@@ -62,6 +65,7 @@ body {
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition:all 1s ease-in-out;
 }
 
 .page.left {
@@ -85,6 +89,7 @@ body {
     font-size: 4rem;
     color: #fff;
     white-space: nowrap;
+    text-align: center;
 }
 .content .page-title.cola {
     letter-spacing: 2px;
@@ -143,4 +148,21 @@ body {
 
 .content .btn.btn.pepsi:hover::before {
     bottom: -55px;
+}
+
+/* Active state styling */
+.container.banner-left-active .left {
+    width: var(--hoverWidth);
+}
+
+.container.banner-left-active .right {
+    width: var(--shrinkWidth);
+}
+
+.container.banner-right-active .left {
+    width: var(--shrinkWidth);
+}
+
+.container.banner-right-active .right {
+    width: var(--hoverWidth);
 }
