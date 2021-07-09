@@ -9,6 +9,12 @@
 :root {
     --cola-bg-color: rgba(107, 60, 60, 0.411);
     --pepsi-bg-color: rgba(41, 43, 73, 0.411);
+
+    --hoverWidth: 75%;
+    --shrinkWidth: 25%;
+
+    --focusWidth: 100%;
+    --blurWidth: 0%;
 }
 
 @font-face {
@@ -62,6 +68,8 @@ body {
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition:all 1s ease-in-out;
+    cursor: grab;
 }
 
 .page.left {
@@ -85,6 +93,7 @@ body {
     font-size: 4rem;
     color: #fff;
     white-space: nowrap;
+    text-align: center;
 }
 .content .page-title.cola {
     letter-spacing: 2px;
@@ -143,4 +152,51 @@ body {
 
 .content .btn.btn.pepsi:hover::before {
     bottom: -55px;
+}
+
+/* Active state styling */
+.container.banner-left-active .left {
+    width: var(--hoverWidth);
+    z-index: 20;
+}
+
+.container.banner-left-active .right {
+    width: var(--shrinkWidth);
+}
+
+.container.banner-right-active .left {
+    width: var(--shrinkWidth);
+}
+
+.container.banner-right-active .right {
+    width: var(--hoverWidth);
+    z-index: 20;
+}
+
+.container.focused-left .left {
+    width: var(--focusWidth);
+    z-index: 20;
+}
+.container.focused-left .right {
+    width: var(--blurWidth);
+}
+
+.container.focused-right .left {
+    width: var(--blurWidth);
+}
+.container.focused-right .right {
+    width: var(--focusWidth);
+    z-index: 20;
+}
+
+@media screen and (max-width: 500px) {
+    .content .page-title {
+        font-size: 3rem;
+    }
+    .content .btn {
+        font-size: 1rem;
+        width: 180px;
+        height: 45px;
+        line-height: 45px;
+    }
 }
