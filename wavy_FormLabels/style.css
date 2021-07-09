@@ -11,6 +11,10 @@
     --active-color: #49a0f7;
 }
 
+input::placeholder{
+    color: transparent;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -71,7 +75,7 @@ body {
     background: transparent;
 }
 
-.form-control input:focus, .form-control input:valid, .btn:focus {
+.form-control input:focus, .form-control input:required:valid, .form-control input:not(:placeholder-shown), .btn:focus {
     outline: 0;
     border-bottom-color: var(--active-color);
 }
@@ -119,7 +123,8 @@ body {
 }
 
 .form-control input:focus + label span,
-.form-control input:valid + label span {
+.form-control input:required:valid + label span,
+.form-control input:not(:placeholder-shown) + label span {
     color: var(--active-color);
     transform: translateY(-25px);
 }
