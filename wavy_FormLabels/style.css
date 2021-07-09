@@ -7,7 +7,8 @@
 }
 
 :root {
-    --muted: rgb(153, 153, 153);
+    --muted: rgb(155, 155, 155);
+    --active-color: #49a0f7;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
 
 .container {
     position: relative;
-    height: 360px;
+    height: 420px;
     width: 320px;
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -39,7 +40,7 @@ body {
     transform: translate(-50%,-50%);
     width: 128px;
     height: 128px;
-    border: 5px solid #3596d6;
+    border: 5px solid var(--active-color);
     border-radius: 100%;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.35);
 }
@@ -55,7 +56,7 @@ body {
 
 .form-group .form-control {
     position: relative;
-    margin: 1.5rem 0;
+    margin: 2.5rem 0;
     width: 250px;
     /* background-color: #fff; */
 }
@@ -72,6 +73,7 @@ body {
 
 .form-control input:focus, .form-control input:valid, .btn:focus {
     outline: 0;
+    border-bottom-color: var(--active-color);
 }
 
 .loginForm .btn {
@@ -94,12 +96,12 @@ body {
 
 .form-group .signup{
     color: #b0bdbe;
-    margin-top: 15px;
+    margin-top: 25px;
     font-family: 'nunito', sans serif;
 }
 
 .form-group .signup span {
-    color: #4791db;
+    color: var(--active-color);
     cursor: pointer;
 }
 
@@ -108,4 +110,16 @@ body {
     position: absolute;
     top: 5px;
     left:0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+    color: var(--active-color);
+    transform: translateY(-25px);
 }
