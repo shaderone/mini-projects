@@ -18,6 +18,7 @@ body {
 }
 
 .box {
+    position: relative;
     width: 90%;
     margin: 0 auto;
     padding: 2rem 1rem;
@@ -35,18 +36,61 @@ body {
     opacity: .5;
     text-shadow: 3px 3px 2px rgb(107, 107, 107);
     font-family: 'poppins';
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .title span {
     color: hsl(199, 100%, 72%);
 }
 
+.copy {
+    position: absolute;
+    right:8%;
+    top: 29%;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    width: 40px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #3d7bbd, #33689f);
+    box-shadow: inset 2px 2px 4px #306296,
+                inset -2px -2px 4px #4284cc;
+    z-index: 10;
+}
+.copy i {
+    opacity: .7;
+    font-size: 1.25rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.alert {
+    position: fixed;
+    bottom: 5%;
+    right: 10%;
+    background-color: #3973b1;
+    height: 50px;
+    width: auto;
+    padding: 0 1rem;
+    line-height: 50px;
+    transform: translateY(500%);
+    transition:transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(145deg, #3d7bbd, #33689f);
+    box-shadow:  2px 2px 4px #306296,
+                -2px -2px 4px #4284cc;
+}
+
+.alert.active {
+    transform: translateY(0);
+}
+
 .joke {
+    position: relative;
+    text-align: left;
     font-family: 'nunito';
     width: 95%;
     margin: 0 auto;
-    padding: 1.5rem .7rem;
+    padding: 1.5rem 1.1rem;
     border-radius: 10px;
     border-radius: 10px;
     background: #3771ad;
