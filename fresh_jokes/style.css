@@ -43,7 +43,7 @@ body {
     color: hsl(199, 100%, 72%);
 }
 
-.copy {
+.copy{
     position: absolute;
     right:8%;
     top: 29%;
@@ -57,7 +57,49 @@ body {
                 inset -2px -2px 4px #4284cc;
     z-index: 10;
 }
-.copy i {
+
+.copy::before, .copy::after  {
+    --scale: 0;
+    --arrow-size: 10px;
+    --tooltip-color: #333;
+    --translate-arrow-y: -10px;
+    position: absolute;
+    content: '';
+    top: -3.5rem;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) scale(var(--scale));
+    transition: transform 50ms;
+}
+
+.copy::before{
+    --translate-arrow-y: calc(-50% - var(--arrow-size));
+    content: attr(data-tooltip);
+    color: #fff;
+    width: max-content;
+    padding: 0 .5rem;
+    border-radius: 5px;
+    background-color: var(--tooltip-color);
+}
+
+.copy::after {
+    content: '';
+    opacity: 0;
+    transform:translateX(-10px) translateY(calc(-1 * var(--arrow-size) + 55px));
+    border: var(--arrow-size) solid transparent;
+    border-top-color:var(--tooltip-color);
+    transform-origin: top center;
+    transition: .15s;
+}
+
+.copy:hover::before, .copy:hover::after {
+    --scale:1;
+    opacity: 1;
+    transform-origin: top center;
+}
+
+
+.copy i{
     opacity: .7;
     font-size: 1.25rem;
     color: rgb(255, 255, 255);
@@ -78,6 +120,7 @@ body {
     background: linear-gradient(145deg, #3d7bbd, #33689f);
     box-shadow:  2px 2px 4px #306296,
                 -2px -2px 4px #4284cc;
+    z-index: 10;
 }
 
 .alert.active {
@@ -89,9 +132,8 @@ body {
     text-align: left;
     font-family: 'nunito';
     width: 95%;
-    margin: 0 auto;
+    margin: 0 10px;
     padding: 1.5rem 1.1rem;
-    border-radius: 10px;
     border-radius: 10px;
     background: #3771ad;
     box-shadow: inset 5px 5px 10px #2f6093,
