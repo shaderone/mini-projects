@@ -1,3 +1,5 @@
+const jokeBox = document.querySelector('#joke')
+const jokeBtn = document.querySelector('#jokeBtn')
 const alertBox = document.querySelector('.alert')
 const onCopy = htmlElement => {
     if(!htmlElement) {
@@ -22,5 +24,20 @@ const onCopy = htmlElement => {
 }
 
 document.querySelector('.copy').onclick = function() {
-    onCopy(document.querySelector('.joke'))
+    onCopy(jokeBox)
 }
+
+const newJoke = async () => {
+    const config = {
+        headers: {
+            'Accept': 'application/json'
+        }
+    }
+    const res = await fetch('https://icanhazdadjoke.com/', config)
+    const data = await res.json()
+    jokeBox.innerText = data.joke
+}
+
+document.addEventListener('DOMContentLoaded', newJoke)
+
+jokeBtn.addEventListener('click', newJoke)
