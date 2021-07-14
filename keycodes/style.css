@@ -8,7 +8,7 @@
 
 body {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
@@ -17,9 +17,19 @@ body {
 }
 
 .key {
+    position: relative;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15rem;
     color: #1f1f1f;
+    text-transform: uppercase;
+}
+
+.key.shrink-m {
+    font-size: 10rem;
+}
+
+.key.shrink-l {
+    font-size: 6rem;
 }
 
 .wrapper {
@@ -33,7 +43,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    min-width: 150px;
+    min-width: 400px;
     min-height: 150px;
     padding:  1rem 1rem 3rem 1rem;
     background-color: rgb(212, 212, 212);
@@ -54,10 +64,15 @@ body {
     height: 90%;
     line-height: 100px;
     text-align: center;
+    padding: 0 10px;
 }
 
-.box h3.e-code {
+.box h3.size-s {
     font-size: 1.7rem;
+}
+
+.box h3.size-m {
+    font-size: 1.5rem;
 }
 
 .box code {
@@ -73,7 +88,7 @@ body {
 }
 
 .toast {
-    position: relative;
+    position: absolute;
     width: 80%;
     text-align: center;
     padding: 1rem 1rem;
@@ -81,12 +96,6 @@ body {
     font-size: 1rem;
     font-weight: bold;
     color: #bea2a2;
-    /* height: 7rem;
-    line-height: 2.5rem; */
-    /* background: #bea2a2;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    /* background-color: rgb(226, 226, 226); */
     box-shadow: 0px 30px 26px 5px hsl(0, 0%, 85%); 
     border-top: 5px solid rgba(255, 0, 0 , 0.21);
     border-bottom: 5px solid rgba(255, 0, 0 , 0.21);
