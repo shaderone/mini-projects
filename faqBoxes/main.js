@@ -23,7 +23,9 @@ const showFaqContent = event => {
     if (event.target.classList.contains('toggler') || event.target.classList.contains('faq-title')) {
         const parentElem = event.target.parentElement
         parentElem.classList.add('active')
-        event.target.className = `toggler fas fa-chevron-up`
+        if(event.target.classList.contains('toggler')) {
+            event.target.className = `toggler fas fa-chevron-up`
+        }
     }
 }
 
