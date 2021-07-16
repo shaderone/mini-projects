@@ -22,9 +22,13 @@ window.addEventListener('DOMContentLoaded', displayIcons)
 const showFaqContent = event => {
     if (event.target.classList.contains('toggler') || event.target.classList.contains('faq-title')) {
         const parentElem = event.target.parentElement
-        parentElem.classList.add('active')
-        if(event.target.classList.contains('toggler')) {
-            event.target.className = `toggler fas fa-chevron-up`
+        const eventElmClassList = event.target.classList
+        parentElem.classList.toggle('active')
+        if(eventElmClassList.contains('toggler')) {
+            eventElmClassList.toggle('active')
+        } else if(eventElmClassList.contains('faq-title')) {
+            const i = event.target.nextElementSibling.nextElementSibling
+            i.classList.toggle('active')
         }
     }
 }

@@ -94,3 +94,7 @@ body {
     right: 1rem;
     cursor: pointer;
 }
+
+.faq .toggler.active {
+    transform: rotate(180deg);
+}
