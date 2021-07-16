@@ -13,15 +13,14 @@ body {
     min-height: 100vh;
     overflow: hidden;
     font-family: 'poppins';
-background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .main-container {
     height: 100%;
     width: 90%;
-    /* background-color: rgba(49, 45, 73, 0.247); */
 }
 
 .main-container h1 {
@@ -65,6 +64,7 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
 .faq-title {
     color: steelblue;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .faq.active h3 {
@@ -72,6 +72,7 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
 }
 
 .faq-content {
+    display: none;
     font-family: 'nunito', 'sans-serif';
     background-color: rgb(235, 235, 235);
     border-radius: 5px;
@@ -80,10 +81,7 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
     padding:1rem ;
     font-size: .9rem;
     color: hsl(208, 41%, 20%);
-}
-
-.faq-box.hide .faq-content {
-    display: none;
+    transition: display .4s ease-in;
 }
 
 .faq.active .faq-content {
@@ -92,6 +90,7 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
 
 .faq .toggler {
     position: absolute;
-    top: .9rem;
+    top: 1.25rem;
     right: 1rem;
+    cursor: pointer;
 }
