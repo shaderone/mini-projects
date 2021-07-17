@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --corner-size: 5px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: hsl(200, 10%, 35%);
+}
+
+.wrapper {
+    width: 90vw;
+    padding: 1rem;
+    border-radius: var(--corner-size);
+    color: #eee;
+    background-color: hsl(200, 10%, 45%);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.267);
+}
+
+.wrapper h2 {
+    font-family: 'Proza Libre', sans-serif;
+    text-align: center;
+}
+
+.wrapper h3 {
+    font-family: 'nunito', 'verdana';
+    margin: 1rem 0;
+    line-height: 2rem;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.wrapper h3 span {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: hsl(162, 50%, 75%);
+    border-bottom: 4px solid hsl(200, 10%, 25%);
+    border-right: 4px solid hsl(200, 10%, 25%);
+    border-radius: var(--corner-size);
+    padding:.2rem .5rem;
+    background-color: hsl(200, 10%, 35%);
+}
+
+#choiceBox {
+    height: 150px;
+    width: 100%;
+    padding: .75rem 1rem 1.5rem 1rem;
+    font-size: 1rem;
+    border: 3px solid transparent;
+    border-radius: var(--corner-size);
+    background-color: #ddd;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#choiceBox:focus {
+    border: 3px solid hsl(200, 10%, 25%);
+    background-color: #fff;
+    outline: 0;
+}
+
+#choice-tags {
+    margin: 1rem 0;
+}
+
+#choice-tags span {
+    display: inline-block;
+    text-transform: capitalize;
+    margin: .5rem;
+    padding: .8rem 1rem;
+    border-radius: var(--corner-size);
+    color: #fff;
+    background-color: hsl(150, 30%, 55%);
+    box-shadow: 4px 8px 4px hsla(0, 0%, 0%, 0.15);
+}
+
+#choice-tags span.selected {
+    background-color: hsl(200, 50%, 15%);
+}
+
+@media screen and (max-width:302px) {
+    #choiceBox {
+        font-size: .9rem;
+        padding: 1rem .75rem 1.5rem 1rem;
+    }
+    #choice-tags span {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+}
