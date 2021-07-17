@@ -31,7 +31,7 @@ const tagSelector = () => {
         setTimeout(() => {
             const randomTag = pickRandomTag()
             selectTag(randomTag)
-        })
+        }, 100)
     }, count * 100)
 }
 
