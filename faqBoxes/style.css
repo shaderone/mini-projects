@@ -11,7 +11,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
     font-family: 'poppins';
     background: #ECE9E6;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
@@ -21,6 +20,7 @@ body {
 .main-container {
     height: 100%;
     width: 90%;
+    padding: 5rem 0;
 }
 
 
@@ -37,7 +37,7 @@ body {
     height: 3px;
     bottom: 0;
     left:0;
-    animation: slide .8s ease-in-out infinite alternate;
+    animation: slide 2s ease-in-out infinite alternate;
     background:linear-gradient(rgb(70, 131, 180) 0 0) left/25% 3px no-repeat rgba(70, 131, 180, 0.507);
 }
 
