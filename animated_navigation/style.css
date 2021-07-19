@@ -37,6 +37,7 @@ header nav {
     justify-content: center;
     align-items: center;
     padding: .8rem 1rem;
+    border-radius: 5px;
     width: 80px;
     background-color: #fff;
     transition: width .4s linear;
@@ -44,14 +45,13 @@ header nav {
 
 nav.active {
     width: 350px;
-    border-radius: 5px;
     box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
     display: flex;
     width: 0;
-    transition: width .5s linear;
+    transition: width .6s linear;
 }
 
 nav.active ul {
@@ -61,7 +61,7 @@ nav.active ul {
 nav ul li {
     transform: rotateY(0deg);
     opacity: 0;
-    transition: transform .5s linear, opacity .5s linear;
+    transition: transform .6s linear, opacity .6s linear;
 }
 
 nav.active ul li {
@@ -72,4 +72,41 @@ nav.active ul li {
 nav ul li a {
     color: #0F2027;
     margin-left: 1.2rem;
+}
+
+.hamburger {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+nav.active .hamburger {
+    margin-right: 10px;
+}
+
+.hamburger .line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #2C5364;
+    transition: transform .6s linear, opacity .1s linear .3s;
+}
+
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+
+nav.active .hamburger .line:nth-child(1) {
+    transform: rotate(-765deg) translateY(11.5px);
+}
+nav.active .hamburger .line:nth-child(2) {
+    opacity: 0;
+}
+nav.active .hamburger .line:nth-child(3) {
+    transform: rotate(765deg) translateY(-11.5px);
 }
