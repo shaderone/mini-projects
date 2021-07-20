@@ -40,7 +40,7 @@ header nav {
     border-radius: 5px;
     width: 80px;
     background-color: #fff;
-    transition: width .4s linear;
+    transition: width .6s linear;
 }
 
 nav.active {
