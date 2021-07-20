@@ -9,9 +9,6 @@
 }
 
 body {
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: 'nunito', sans-serif;
     overflow-x: hidden;
     height: 100vh;
@@ -23,13 +20,26 @@ header {
     padding: .8rem 5rem;
     justify-content: space-between;
     height: 15vh;
-    background-color: hsl(198, 80%, 80%);
+    background-color: #11252d;
 }
 
 header .logo {
+    padding: .3rem 1.5rem;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #10222a, #0e1d23);
+    box-shadow:  8px 8px 16px #0b161b,
+                -8px -8px 16px #142a33;
+}
+
+header .logo span{
+    padding: 0 .3rem;
     font-size: 2.5rem;
     text-transform: capitalize;
     font-family: 'Rochester', cursive;
+    background: #AAFFA9;
+    background: linear-gradient(to right, #3bacf7, #c85bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header nav {
@@ -40,7 +50,10 @@ header nav {
     border-radius: 5px;
     width: 80px;
     background-color: #fff;
-    transition: width .6s linear;
+    transition: width .6s ease-in-out;
+    background: linear-gradient(145deg, #122830, #0f2129);
+    box-shadow:  13px 13px 30px #0a1519,
+                -13px -13px 30px #183541;
 }
 
 nav.active {
@@ -51,7 +64,7 @@ nav.active {
 nav ul {
     display: flex;
     width: 0;
-    transition: width .6s linear;
+    transition: width .6s ease-in-out;
 }
 
 nav.active ul {
@@ -61,7 +74,7 @@ nav.active ul {
 nav ul li {
     transform: rotateY(0deg);
     opacity: 0;
-    transition: transform .6s linear, opacity .6s linear;
+    transition: transform .6s ease-in-out, opacity .6s ease-in-out;
 }
 
 nav.active ul li {
@@ -70,7 +83,7 @@ nav.active ul li {
 }
 
 nav ul li a {
-    color: #0F2027;
+    color: hsl(198, 40%, 60%);
     margin-left: 1.2rem;
 }
 
@@ -90,7 +103,7 @@ nav.active .hamburger {
     width: 100%;
     height: 3px;
     background-color: #2C5364;
-    transition: transform .6s linear, opacity .1s linear .3s;
+    transition: transform .6s ease-in-out, opacity .1s ease-in-out .3s;
 }
 
 .hamburger .line:nth-child(2) {
@@ -109,4 +122,80 @@ nav.active .hamburger .line:nth-child(2) {
 }
 nav.active .hamburger .line:nth-child(3) {
     transform: rotate(765deg) translateY(-11.5px);
+}
+
+section#banner {
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#banner .left {
+    position: relative;
+    height: 100%;
+    width: 50vw;
+    display: grid;
+    place-items: center;
+    padding: 0 3rem;
+    background: #08131d;
+}
+
+.left .left-contents {
+    z-index: 10;
+}
+
+.left .left-contents > * {
+    display: block;
+    margin: 1.75rem 0;
+}
+
+.left h1 {
+    font-family: 'poppins', sans-serif;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    color: hsl(0, 0%, 95%);
+}
+
+.left h1 span {
+    color: #24557a;
+}
+
+.left h3 {
+    font-weight: 400;
+    color: hsl(0, 0%, 75%);
+}
+
+.left p {
+    font-weight: bold;
+    color: #ddd;
+}
+
+.left p a {
+    color: #c060ff;
+}
+
+.left .particle{
+    position: absolute;
+}
+.left .pr1 {
+    top: -1px;
+    left: 20px;
+}
+.left .pr2 {
+    top: 30%;
+    left: 60%;
+}
+.left .pr3 {
+    bottom: 10px;
+    left: 100px;
+}
+
+#banner .right {
+    position: relative;
+    width: 50vw;
+}
+.right .particle {
+    position: absolute;
+    right: 0;
 }
