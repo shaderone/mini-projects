@@ -38,6 +38,7 @@ header .logo span{
     font-family: 'Rochester', cursive;
     background: #AAFFA9;
     background: linear-gradient(to right, #3bacf7, #c85bff);
+    background-clip: initial;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
