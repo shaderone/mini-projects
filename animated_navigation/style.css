@@ -193,8 +193,47 @@ section#banner {
 #banner .right {
     position: relative;
     width: 50vw;
+    display: grid;
+    place-items: center;
+    background-color: #ebebeb;
 }
 .right .particle {
     position: absolute;
     right: 0;
+    top: 0;
+}
+
+.right .form-group {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.form-group input[type="email"] {
+    outline: 0;
+    border: 0;
+    width: 50%;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #eeeeee;
+    box-shadow: inset 3px 3px 10px #b5b5b5,
+    inset -5px -5px 5px #ffffff;
+}
+
+.form-group input[type="button"] {
+    font-size: 1.1rem;
+    margin-left: -5px;
+    padding: 1rem;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #fff;
+    background-color: hsl(276, 100%, 65%);
+    cursor: pointer; 
+    transition: .2s ease;
+}
+.form-group input[type="button"]:hover {
+    background-color: hsl(276, 100%, 50%);
 }
