@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Special+Elite&display=swap');
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --border-color: #dcdcdc;
+    --transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    background: #36D1DC; 
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px ;
+    font-family: 'nunito';
+}
+
+.wrapper h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    margin:2rem 0rem 1.5rem;
+}
+
+.wrapper h1, .text{
+    text-align: center;
+}
+.text {
+    padding: 0 .5rem;
+}
+
+.cup {
+    border: 4px solid var(--border-color);
+    width: 150px;
+    height: 200px;
+    border-radius: 0 0 40px 40px;
+    font-family: 'Special Elite', cursive;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #34697d;
+    background-color: #fff;
+    font-weight: 700;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.cups {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cup.cup-small {
+    width: 75px;
+    height: 100px;
+    border-radius: 0 0 20px 20px;
+    cursor: pointer;
+    margin: 5px;
+    transition: var(--transition);
+}
+
+.cup.cup-small.cup-full {
+    color: #fff;
+    background-color: #73b6fe;
+}
+
+.cup .remained {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    transition: var(--transition);
+}
+
+.cup .remained span , .cup .percentage {
+    font-weight: bold;
+}
+
+.cup .percentage {
+    font-size: 1.25rem;
+    width: 100%;
+    height: 0px;
+    text-align: center;
+    background-color: #73b6fe;
+    transition: var(--transition);
+}
+
+@media screen and (max-width:768px) {
+    body {
+        overflow-y: scroll;
+    }
+    .cup {
+        width: 110px;
+        height: 170px;
+    }
+    .cups {
+        flex-wrap: wrap;
+    }
+    .cup.cup-small {
+        padding: 0 .3rem;
+        font-size: .9rem;
+        margin: 10px;
+        width: 55px;
+        height: 85px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cup {
+        height: 150px;
+    }
+}
