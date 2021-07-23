@@ -45,7 +45,7 @@ body {
 .cup {
     border: 4px solid var(--border-color);
     width: 150px;
-    height: 200px;
+    height: 240px;
     border-radius: 0 0 40px 40px;
     font-family: 'Special Elite', cursive;
     margin: 2rem 0;
@@ -96,10 +96,12 @@ body {
 }
 
 .cup .percentage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.25rem;
     width: 100%;
     height: 0px;
-    text-align: center;
     background-color: #73b6fe;
     transition: var(--transition);
 }
