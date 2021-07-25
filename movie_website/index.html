@@ -18,25 +18,27 @@
 
 <body>
 
-    <section id="banner">
-        <header>
-            <nav>
-                <div class="logo">MovieCATS</div>
-                <ul class="menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">TV Shows</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">Upcoming</a></li>
-                </ul>
-                <span>
-                    <!-- empty class to maintian flexible box -->
-                </span>
-            </nav>
-            <div class="searchBox">
-                <input type="text" class="search" id="search" placeholder="Search here...">
-                <button href="#" class="btn"><i class="fas fa-search"></i></button>
+    <header>
+        <nav>
+            <div class="logo"><em>MovieCATS</em></div>
+            <ul class="menu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Upcoming</a></li>
+            </ul>
+            <div class="account">
+                <button class="account-btn login">Login</button>
+                <!-- <button class="account-btn signup">signup</button> -->
             </div>
-        </header>
+        </nav>
+        <div class="searchBox">
+            <input type="text" class="search" id="search" placeholder="Search here...">
+            <button href="#" class="btn"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <section id="banner">
 
         <div class="swiper-container gallery-top">
             <div class="swiper-wrapper mainSlides">
@@ -50,12 +52,12 @@
         </div>
         <div class="swiper-container gallery-thumbs">
             <div class="swiper-wrapper thumbSlides">
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
+                <div class="swiper-slide">The Witcher <div class="release">2019</div></div>
+                <div class="swiper-slide">Stranger Things<div class="release">2016</div></div>
+                <div class="swiper-slide">The Peaky Blinders<div class="release">2013</div></div>
+                <div class="swiper-slide">Dark<div class="release">2017</div></div>
+                <div class="swiper-slide">Breaking Bad<div class="release">2008</div></div>
+                <div class="swiper-slide">Sherlock Holmes<div class="release">2010</div></div>
             </div>
         </div>
     </section>
@@ -78,7 +80,7 @@
             allowTouchMove: false,
             slidesPerView: 1,
             loop: true,
-            speed: 2000,
+            speed: 3000,
             autoplay: {
                 delay: 1000,
                 disableOnInteraction: true,

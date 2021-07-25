@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400&family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
 *, *::before, *::after {
     margin: 0;
@@ -15,20 +16,24 @@
     --dark: #0E2123;
 
     --width: 300px;
+    --max-width: 85vw;
 }
 
 body {
-    position: relative;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-color: #0E2123;
 }
 
 header {
-    position: relative;
+    position: absolute;
+    top: 0;
     width: 100vw;
     height: 12.5vh;
+    z-index: 2;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ffffff59;
 }
 
 header nav{
@@ -41,7 +46,7 @@ header nav{
 }
 
 header .logo {
-    font-family:'Montserrat Alternates', sans-serif;
+    font-family: 'merriweather','Montserrat Alternates', sans-serif;
     font-size: 2rem;
     font-weight: bold;
     color: var(--primary-color);
@@ -50,25 +55,59 @@ header .logo {
 header .menu {
     display: flex;
     justify-content: space-between;
-    width: 30%;
-    margin-right: 13rem;
+    width: 35%;
     font-family: 'nunito', sans-serif;
 }
 
 header .menu li a {
+    display: inline-block;
+    height: 12.5vh;
+    width: 6rem;
+    line-height: 12.5vh;
+    text-align: center;
     color: #fff;
-    transition: .3s ease;
+    box-sizing: initial;
+    border-bottom:2px solid transparent;
+    transition: .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 header .menu li a.active, header .menu li a:hover{
+    font-weight: bold;
     color: var(--primary-color);
+    border-bottom:2px solid var(--primary-color);
 }
+
+header nav .account-btn {
+    padding: .5rem 1.25rem;
+    border: 0;
+    outline: 0;
+    border-radius: 3px;
+    font-size: 1.15rem;
+    font-family: 'poppins';
+    cursor: pointer;
+}
+
+header nav .account-btn.login {
+    color: var(--primary-color);
+    background-color: #fff;
+    transition: .3s ease;
+}
+
+header nav .account-btn.login:hover {
+    color: var(--primary-color);
+    background-color: var(--dark);
+}
+
+/* header nav .account-btn.signup {
+    color: #fff;
+    background-color: var(--primary-color);
+} */
 
 header .searchBox {
     position: absolute;
     height: 50px;
-    top: .9rem;
-    right: 3rem;
+    top: 5.1rem;
+    right: 5.1rem;
 }
 
 .searchBox .search {
@@ -86,7 +125,7 @@ header .searchBox {
 .btn {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 50px;
     width: 50px;
     border: 2px solid var(--primary-color);
@@ -103,17 +142,19 @@ header .searchBox {
 }
 
 .searchBox.active .search{
-    width: var(--width);
+    width: var(--max-width);
 }
 
-.searchBox.active .btn {
-    transform: translateX(calc(var(--width) - 50px));
-}
+
 
 #banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: calc(100vh - (12.5vh));
-    background: rgb(14,33,35);
+    height: 100vh;
+    background: rgb(14, 33, 35);
+    z-index: 1;
 }
 
 .swiper-container {
@@ -128,9 +169,120 @@ header .searchBox {
     background-position: bottom center;
 }
 
+.gallery-top .swiper-wrapper .swiper-slide:nth-child(6) {
+    background-position: center center;
+}
+
 .swiper-slide {
+    position: relative;
+    color: #fff;
+    font-weight: bold;
     background-size: cover;
     background-position: top center;
+}
+
+.mainSlides .swiper-slide .swiper-content {
+    position: relative;
+    top: 58%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 60%;
+}
+
+.swiper-content > * {
+    margin: 10px 0;
+}
+
+.swiper-content h1 {
+    font-family: 'oswald';
+    font-size: 4.5rem;
+    margin-bottom: -20px;
+    text-transform: capitalize;
+}
+
+.swiper-content h3 {
+    color: #ccc;
+    font-family: 'nunito';
+}
+
+.swiper-content .rating span, .swiper-content .rating i{
+    color: #F5C518;
+}
+.swiper-content .rating i {
+    transform: scale(.7);
+}
+
+.swiper-content .mediaButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 8rem;
+}
+
+.swiper-content .mediaButtons .mediabtn {
+    display: grid;
+    place-items: center;
+    font-size: 1.75rem;
+    border-radius: 3px;
+    height: 2.75rem;
+    width: 3.5rem;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    transition: .3s ease;
+}
+
+.swiper-content .mediaButtons .mediabtn.active, .swiper-content .mediaButtons .mediabtn:hover {
+    color: var(--primary-color);
+    background-color: #0E2123;
+}
+
+.swiper-content .overview {
+    font-family: 'nunito';
+    font-weight: 400;
+    width: 40%;
+    height: 15vh;
+    overflow: visible;
+    background: #303030;
+    background: -webkit-linear-gradient(to top, #303030 0%, #FFFFFF 78%);
+    background: -moz-linear-gradient(to top, #303030 0%, #FFFFFF 78%);
+    background: linear-gradient(to top, #303030 0%, #FFFFFF 78%);
+    background-clip: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.swiper-content .btn-more {
+    display: block;
+    margin: 10px 0;
+    outline: 0;
+    border: 0;
+    border-radius: 3px;
+    font-family: 'nunito';
+    padding: .6rem 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--primary-color);
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.swiper-content .btn-more:hover {
+    letter-spacing: 2px;
+}
+
+.thumbSlides .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    font-family: 'nunito';
+}
+
+.thumbSlides .swiper-slide .release {
+    transform-origin: bottom center;
+    transform: scale(0);
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: .3s ease;
 }
 
 .gallery-top {
@@ -139,19 +291,23 @@ header .searchBox {
 }
 
 .gallery-thumbs {
-    width: 90vw;
-    height: 20%;
-    padding-top: 5px;
+    width: 100vw;
+    height: 18%;
+    margin: 5px 0;
 }
 
 .gallery-thumbs .swiper-slide {
-    width: 25vw;
+    width: 16.6vw;
     height: 100%;
     opacity: 0.4;
     border-radius: 5px;
-    border-bottom: 4px solid rgb(0, 0, 0);
+    border-bottom: 4px solid var(--primary-color);
 }
 
 .gallery-thumbs .swiper-slide-thumb-active {
     opacity: 1;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active .release  {
+    transform: scale(1);
 }
