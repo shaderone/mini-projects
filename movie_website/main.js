@@ -43,3 +43,15 @@ mainSlides.forEach((slide, index) => {
 thumbSlides.forEach((slide, index) => {
     slide.style.backgroundImage = `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/${imgArray[index]}')`;
 })
+
+const openOverview = document.querySelector('.movie-cards .open-overview')
+const closeOverview = document.querySelector('.movie-cards .close-overview')
+const overview = document.querySelector('.movie-cards .overview')
+
+openOverview.addEventListener('click',() => {
+    overview.classList.add('active')
+}) 
+
+closeOverview.addEventListener('click', () => {
+    overview.classList.remove('active')
+})

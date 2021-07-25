@@ -16,51 +16,81 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
-<body>
+<body id="home">
 
-    <header>
-        <nav>
-            <div class="logo"><em>MovieCATS</em></div>
-            <ul class="menu">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">TV Shows</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Upcoming</a></li>
-            </ul>
-            <div class="account">
-                <button class="account-btn login">Login</button>
-                <!-- <button class="account-btn signup">signup</button> -->
+    <div id="banner-wrapper">
+        <header>
+            <nav>
+                <div class="logo"><em>MovieCATS</em></div>
+                <ul class="menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#tvshows">TV Shows</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                </ul>
+                <div class="account">
+                    <button class="account-btn login">Login</button>
+                    <!-- <button class="account-btn signup">signup</button> -->
+                </div>
+            </nav>
+            <div class="searchBox">
+                <input type="text" class="search" id="search" placeholder="Search here...">
+                <button href="#" class="btn"><i class="fas fa-search"></i></button>
             </div>
-        </nav>
-        <div class="searchBox">
-            <input type="text" class="search" id="search" placeholder="Search here...">
-            <button href="#" class="btn"><i class="fas fa-search"></i></button>
-        </div>
-    </header>
+        </header>
+        
+        <section id="banner">
+        
+            <div class="swiper-container gallery-top">
+                <div class="swiper-wrapper mainSlides">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+            </div>
+            <div class="swiper-container gallery-thumbs">
+                <div class="swiper-wrapper thumbSlides">
+                    <div class="swiper-slide">The Witcher <div class="release">2019</div>
+                    </div>
+                    <div class="swiper-slide">Stranger Things<div class="release">2016</div>
+                    </div>
+                    <div class="swiper-slide">The Peaky Blinders<div class="release">2013</div>
+                    </div>
+                    <div class="swiper-slide">Dark<div class="release">2017</div>
+                    </div>
+                    <div class="swiper-slide">Breaking Bad<div class="release">2008</div>
+                    </div>
+                    <div class="swiper-slide">Sherlock Holmes<div class="release">2010</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <section id="banner">
-
-        <div class="swiper-container gallery-top">
-            <div class="swiper-wrapper mainSlides">
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
+    <main id="movies">
+        <h1 class="movie-genere">Movies</h1>
+        <div class="movie-wrapper">
+            <div class="movie-cards">
+                <div class="movie-banner"><img src="assets/temp.jpg" alt="looks that kill"></div>
+                <div class="movie-banner-contents">
+                    <h3 class="movie-title">Avengers Endgame</h3>
+                    <div class="movie-rating">8.9</div>
+                </div>
+                <div class="overview"><div><span>Description</span><i class="close-overview fas fa-times"></i></div> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non id libero dicta provident. Quos facilis dignissimos
+                inventore nam nobis soluta, neque cupiditate, temporibus accusamus eaque eos itaque commodi corporis reiciendis! Lorem
+                ipsum, dolor sit amet consectetur adipisicing elit. Consectetur obcaecati maxime voluptates hic molestias, et
+                perspiciatis vel voluptas molestiae voluptate perferendis, pariatur praesentium itaque beatae autem natus quas dolorem
+                numquam? alias earum aperiam possimus placeat quisquam quo repudiandae provident! Corrupti esse quae
+                nisi.</p>
+            </div>
+                <div class="btn-more open-overview">More</div>
             </div>
         </div>
-        <div class="swiper-container gallery-thumbs">
-            <div class="swiper-wrapper thumbSlides">
-                <div class="swiper-slide">The Witcher <div class="release">2019</div></div>
-                <div class="swiper-slide">Stranger Things<div class="release">2016</div></div>
-                <div class="swiper-slide">The Peaky Blinders<div class="release">2013</div></div>
-                <div class="swiper-slide">Dark<div class="release">2017</div></div>
-                <div class="swiper-slide">Breaking Bad<div class="release">2008</div></div>
-                <div class="swiper-slide">Sherlock Holmes<div class="release">2010</div></div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- fontawesome script -->
     <script src="https://kit.fontawesome.com/39350fd9df.js"></script>
