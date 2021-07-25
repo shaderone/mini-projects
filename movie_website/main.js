@@ -30,7 +30,7 @@ mainSlides.forEach((slide, index) => {
     <h3>Season ${season[index]}</h3>
     <p class="rating"><span>IMDB</span> Rating ${rating[index]}/10 <i class="fas fa-star"></i></p>
     <div class="mediaButtons">
-        <div title="Watch Trailer" class="mediabtn"><i class="far fa-play-circle"></i></div>
+        <div title="Watch Trailer" class="mediabtn active"><i class="far fa-play-circle"></i></div>
         <div title="Watch Later" class="mediabtn"><i class="far fa-clock"></i></div>
     </div>
     <p class="overview">Lorem, ipsum dolor sit amet consectetur adipisicing elit.   Dolor, vel nobis? Placeat eaque tempore quia autem impedit voluptatibus doloremque! Ex corrupti voluptates placeat, tempora minima qui.

@@ -16,6 +16,7 @@
     --dark: #0E2123;
 
     --width: 300px;
+    --max-width: 85vw;
 }
 
 body {
@@ -55,7 +56,6 @@ header .menu {
     display: flex;
     justify-content: space-between;
     width: 35%;
-    margin-right: 13rem;
     font-family: 'nunito', sans-serif;
 }
 
@@ -77,11 +77,37 @@ header .menu li a.active, header .menu li a:hover{
     border-bottom:2px solid var(--primary-color);
 }
 
+header nav .account-btn {
+    padding: .5rem 1.25rem;
+    border: 0;
+    outline: 0;
+    border-radius: 3px;
+    font-size: 1.15rem;
+    font-family: 'poppins';
+    cursor: pointer;
+}
+
+header nav .account-btn.login {
+    color: var(--primary-color);
+    background-color: #fff;
+    transition: .3s ease;
+}
+
+header nav .account-btn.login:hover {
+    color: var(--primary-color);
+    background-color: var(--dark);
+}
+
+/* header nav .account-btn.signup {
+    color: #fff;
+    background-color: var(--primary-color);
+} */
+
 header .searchBox {
     position: absolute;
     height: 50px;
-    top: .9rem;
-    right: 3rem;
+    top: 5.1rem;
+    right: 5.1rem;
 }
 
 .searchBox .search {
@@ -99,7 +125,7 @@ header .searchBox {
 .btn {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 50px;
     width: 50px;
     border: 2px solid var(--primary-color);
@@ -116,12 +142,9 @@ header .searchBox {
 }
 
 .searchBox.active .search{
-    width: var(--width);
+    width: var(--max-width);
 }
 
-.searchBox.active .btn {
-    transform: translateX(calc(var(--width) - 50px));
-}
 
 
 #banner {
@@ -160,7 +183,7 @@ header .searchBox {
 
 .mainSlides .swiper-slide .swiper-content {
     position: relative;
-    top: 55%;
+    top: 58%;
     left: 10%;
     transform: translateY(-50%);
     width: 60%;
@@ -207,7 +230,7 @@ header .searchBox {
     transition: .3s ease;
 }
 
-.swiper-content .mediaButtons .mediabtn:hover {
+.swiper-content .mediaButtons .mediabtn.active, .swiper-content .mediaButtons .mediabtn:hover {
     color: var(--primary-color);
     background-color: #0E2123;
 }
@@ -251,13 +274,13 @@ header .searchBox {
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    font-family: 'nunito';
 }
 
 .thumbSlides .swiper-slide .release {
     transform-origin: bottom center;
     transform: scale(0);
     font-size: 2rem;
-    font-family: 'nunito';
     color: var(--primary-color);
     transition: .3s ease;
 }
