@@ -20,9 +20,9 @@
 
     <header>
         <nav>
-            <div class="logo">MovieCATS</div>
+            <div class="logo"><em>MovieCATS</em></div>
             <ul class="menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">TV Shows</a></li>
                 <li><a href="#">Movies</a></li>
                 <li><a href="#">Upcoming</a></li>
@@ -41,7 +41,20 @@
 
         <div class="swiper-container gallery-top">
             <div class="swiper-wrapper mainSlides">
-                <div class="swiper-slide"></div>
+                <div class="swiper-slide">
+                    <div class="swiper-content">
+                        <h1>The Witcher</h1>
+                        <h3>Season 1</h3>
+                        <p class="rating"><span>IMDB</span> Rating 7.3/10 <i class="fas fa-star"></i></p>
+                        <div class="mediaButtons">
+                            <div title="Watch Trailer" class="mediabtn"><i class="far fa-play-circle"></i></div>
+                            <div title="Watch Later" class="mediabtn"><i class="far fa-clock"></i></div>
+                        </div>
+                        <p class="overview">Lorem, ipsum dolor sit amet consectetur adipisicing elit.   Dolor, vel nobis? Placeat eaque tempore quia autem impedit voluptatibus doloremque! Ex corrupti voluptates placeat, tempora minima qui.
+                        </p>
+                        <button class="btn-more">Read More</button>
+                        </div>
+                    </div>
                 <div class="swiper-slide"></div>
                 <div class="swiper-slide"></div>
                 <div class="swiper-slide"></div>
@@ -51,12 +64,12 @@
         </div>
         <div class="swiper-container gallery-thumbs">
             <div class="swiper-wrapper thumbSlides">
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
+                <div class="swiper-slide">The Witcher <div>2019</div></div>
+                <div class="swiper-slide">Stranger Things<div>2016</div></div>
+                <div class="swiper-slide">The Peaky Blinders<div>2013</div></div>
+                <div class="swiper-slide">Dark<div>2017</div></div>
+                <div class="swiper-slide">Breaking Bad<div>2008</div></div>
+                <div class="swiper-slide">Sherlock Holmes<div>2010</div></div>
             </div>
         </div>
     </section>
@@ -69,7 +82,7 @@
     <script src="main.js" type="text/javascript"></script>
     
     <!-- Initialize Swiper -->
-    <script>
+    <!-- <script>
         var galleryThumbs = new Swiper('.gallery-thumbs', {
             allowTouchMove: false,
             spaceBetween: 5,
@@ -88,7 +101,7 @@
                 swiper: galleryThumbs
             }
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
