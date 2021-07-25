@@ -18,17 +18,19 @@
 }
 
 body {
-    position: relative;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-color: #0E2123;
+    background-color: #cca62a;
 }
 
 header {
-    position: relative;
+    position: absolute;
+    top: 0;
     width: 100vw;
     height: 12.5vh;
+    z-index: 2;
+    background-color: transparent;
 }
 
 header nav{
@@ -110,10 +112,15 @@ header .searchBox {
     transform: translateX(calc(var(--width) - 50px));
 }
 
+
 #banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: calc(100vh - (12.5vh));
-    background: rgb(14,33,35);
+    height: 100vh;
+    background: rgb(14, 33, 35);
+    z-index: 1;
 }
 
 .swiper-container {
@@ -126,6 +133,10 @@ header .searchBox {
 .gallery-top .swiper-wrapper .swiper-slide:nth-child(3), .gallery-top .swiper-wrapper .swiper-slide:nth-child(5),
 .gallery-thumbs .swiper-wrapper .swiper-slide:nth-child(2), .gallery-thumbs .swiper-wrapper .swiper-slide:nth-child(4) {
     background-position: bottom center;
+}
+
+.gallery-top .swiper-wrapper .swiper-slide:nth-child(6) {
+    background-position: center center;
 }
 
 .swiper-slide {
@@ -149,7 +160,7 @@ header .searchBox {
     height: 100%;
     opacity: 0.4;
     border-radius: 5px;
-    border-bottom: 4px solid rgb(0, 0, 0);
+    border-bottom: 4px solid #1AC7B3;
 }
 
 .gallery-thumbs .swiper-slide-thumb-active {
