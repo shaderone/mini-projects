@@ -253,10 +253,13 @@ header .searchBox {
     cursor: pointer;
 }
 
-.thumbSlides .swiper-slide div {
+.thumbSlides .swiper-slide .release {
+    transform-origin: bottom center;
+    transform: scale(0);
     font-size: 2rem;
     font-family: 'nunito';
     color: var(--primary-color);
+    transition: .3s ease;
 }
 
 .gallery-top {
@@ -280,4 +283,8 @@ header .searchBox {
 
 .gallery-thumbs .swiper-slide-thumb-active {
     opacity: 1;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active .release  {
+    transform: scale(1);
 }
