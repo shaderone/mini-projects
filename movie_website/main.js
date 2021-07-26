@@ -20,7 +20,7 @@ const seriesNameArray = seriesName.split(',')
 const season = [2, 3, 5, 5, 6, 4]
 const rating = [8.2, 8.7, 8.8, 8.8, 9.4, 7.6]
 
-console.log(seriesNameArray, season, rating);
+
 
 mainSlides.forEach((slide, index) => {
     slide.style.backgroundImage = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/${imgArray[index]}')`;
@@ -55,3 +55,31 @@ openOverview.addEventListener('click',() => {
 closeOverview.addEventListener('click', () => {
     overview.classList.remove('active')
 })
+
+// moviedb stuffs
+const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d65aa52d5e6b18377cea3b5f02c1bad4&page=1`
+const IMG_PATH = `https://image.tmdb.org/t/p/w1200`
+const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=d65aa52d5e6b18377cea3b5f02c1bad4&query="`
+
+const getMovies = async (requestURL) => {
+    const res = await fetch(requestURL)
+    const data = await res.json()
+    console.log(data.results);
+}
+
+getMovies(API_URL)
+
+// search functionality
+function handleEvent(event) {
+    const searchQuery = searchField.value
+    if(event.key === 'Enter') {
+        if(searchQuery && searchQuery !== '') {
+            getMovies(SEARCH_URL+searchQuery)
+            searchField.value = ''
+        } else {
+            window.location.reload()
+        }
+    }
+}
+searchField.addEventListener('keypress', handleEvent);
+
