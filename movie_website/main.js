@@ -58,9 +58,8 @@ const getMovies = async (requestURL) => {
 getMovies(API_URL)
 
 
+const movieContainer = document.querySelector('.movie-wrapper')
 function showMovies(movies) {
-    console.log(movies[0]);
-    const movieContainer = document.querySelector('.movie-wrapper')
     movieContainer.innerHTML = ''
     movies.forEach(movie => {
         const { title, poster_path, vote_average, overview } = movie
@@ -84,17 +83,19 @@ function showMovies(movies) {
     })
 }
 
-const openOverview = document.querySelector('.movie-cards .open-overview')
-const closeOverview = document.querySelector('.movie-cards .close-overview')
-const overviewEl = document.querySelector('.movie-cards .overview')
-
-openOverview.addEventListener('click', () => {
-    overviewEl.classList.add('active')
+// or use event listners
+movieContainer.addEventListener('click', event => {
+    if(event.target.classList.contains('open-overview')) {
+        const overviewElm = event.target.previousElementSibling
+        overviewElm.classList.add('active')
+        event.target.style.display = 'none'
+    } else if (event.target.classList.contains('close-overview')) {
+        const overviewElm = event.target.parentElement.parentElement
+        overviewElm.classList.remove('active')
+        overviewElm.nextElementSibling.style.display = 'block'
+    }
 })
 
-closeOverview.addEventListener('click', () => {
-    overviewEl.classList.remove('active')
-})
 
 // function to set the color of rating accordingly
 // function setClassByRating(rating) {
@@ -122,4 +123,3 @@ function handleEvent(event) {
     }
 }
 searchField.addEventListener('keypress', handleEvent);
-
