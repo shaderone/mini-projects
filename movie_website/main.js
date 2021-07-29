@@ -44,30 +44,70 @@ thumbSlides.forEach((slide, index) => {
     slide.style.backgroundImage = `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/${imgArray[index]}')`;
 })
 
-const openOverview = document.querySelector('.movie-cards .open-overview')
-const closeOverview = document.querySelector('.movie-cards .close-overview')
-const overview = document.querySelector('.movie-cards .overview')
-
-openOverview.addEventListener('click',() => {
-    overview.classList.add('active')
-}) 
-
-closeOverview.addEventListener('click', () => {
-    overview.classList.remove('active')
-})
-
 // moviedb stuffs
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d65aa52d5e6b18377cea3b5f02c1bad4&page=1`
-const IMG_PATH = `https://image.tmdb.org/t/p/w1200`
+const IMG_PATH = `https://image.tmdb.org/t/p/w1280`
 const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=d65aa52d5e6b18377cea3b5f02c1bad4&query="`
 
 const getMovies = async (requestURL) => {
     const res = await fetch(requestURL)
     const data = await res.json()
-    console.log(data.results);
+    showMovies(data.results);
 }
 
 getMovies(API_URL)
+
+
+function showMovies(movies) {
+    console.log(movies[0]);
+    const movieContainer = document.querySelector('.movie-wrapper')
+    movieContainer.innerHTML = ''
+    movies.forEach(movie => {
+        const { title, poster_path, vote_average, overview } = movie
+
+        const movieCardWrapper = document.createElement('div')
+        movieCardWrapper.className = `movie-cards`
+        movieCardWrapper.innerHTML = `
+        <div class="movie-banner"><img src="${IMG_PATH+poster_path}" alt="${title}"></div>
+            <div class="movie-banner-contents">
+                <h3 class="movie-title">${title}</h3>
+                <div class="movie-rating">${vote_average} <i class="fas fa-star"></i></div>
+            </div>
+            <div class="overview">
+                <div><span>Description</span><i class="close-overview fas fa-times"></i></div>
+                <p>${overview}</p>
+            </div>
+            <div class="btn-more open-overview">More</div>
+        `
+        movieContainer.appendChild(movieCardWrapper)
+
+    })
+}
+
+const openOverview = document.querySelector('.movie-cards .open-overview')
+const closeOverview = document.querySelector('.movie-cards .close-overview')
+const overviewEl = document.querySelector('.movie-cards .overview')
+
+openOverview.addEventListener('click', () => {
+    overviewEl.classList.add('active')
+})
+
+closeOverview.addEventListener('click', () => {
+    overviewEl.classList.remove('active')
+})
+
+// function to set the color of rating accordingly
+// function setClassByRating(rating) {
+//     if(rating >= 8) {
+//         return 'yellow'
+//     } else if (rating >= 7.2) {
+//         return 'orange'
+//     } else if (rating >=5.8 && rating <= 7.2) {
+//         return 'orangered'
+//     } else  {
+//         return `red`
+//     }
+// }
 
 // search functionality
 function handleEvent(event) {

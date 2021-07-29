@@ -26,7 +26,7 @@ html {
 body {
     overflow-x: hidden;
     background: rgb(15,70,70);
-background: linear-gradient(180deg, rgba(15,70,70,1) 0%, rgba(14,33,35,1) 100%);
+    background: linear-gradient(180deg, rgba(15,70,70,1) 0%, rgba(14,33,35,1) 100%);
 }
 
 #banner-wrapper {
@@ -346,7 +346,7 @@ header .searchBox {
 #movies .movie-cards {
     position: relative;
     width: 21vw;
-    height: 400px;
+    height: 430px;
     margin: 10px;
     border-radius: 3px;
     background-color: #fff;
@@ -354,9 +354,15 @@ header .searchBox {
     overflow: hidden;
 }
 
+.movie-cards .movie-banner {
+    text-align: center;
+    border-radius: 3px;
+    background: linear-gradient(45deg, rgba(15,70,70,1) 50%, rgba(14,33,35,1) 50%);
+}
+
 .movie-cards .movie-banner img{
     max-width: 100%;
-    height: 300px;
+    height: 280px;
 }
 
 .movie-cards .movie-banner-contents {
@@ -367,15 +373,23 @@ header .searchBox {
     justify-content: space-between;
 }
 
+.movie-banner-contents .movie-title {
+    width: 65%;
+}
+
 .movie-banner-contents .movie-rating {
     position: relative;
+    text-align: center;
+    right: 0;
+    width: 25%;
+    height: 35px;
     color: var(--primary-color);
     background-color: var(--dark);
-    padding: .2rem .4rem;
+    padding: .4rem;
 }
 .movie-rating i {
     position: relative;
-    top: 45%;
+    top: 40%;
     transform: translateY(-100%);
     color: #F5C518;
     font-size: .7rem;
@@ -428,6 +442,10 @@ header .searchBox {
 
 .movie-cards .btn-more {
     display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: 5px 10px;
     padding: .5rem 0;
     text-align: center;
@@ -440,3 +458,19 @@ header .searchBox {
     color: #fff;
     background-color: var(--secondary-color);
 }
+
+/* .yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.orangered {
+    color: orangered;
+}
+
+.red {
+    color: red;
+} */
