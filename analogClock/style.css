@@ -63,24 +63,25 @@ body .theme::after {
     display: flex;
     justify-self: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     background-image: url(assets/clock.png);
     background-size: cover;
     border-radius: 50%;
-    padding: 1rem;
     border: 10px solid hsl(202, 58%, 8%);
+}
+
+body .clock {
     box-shadow: inset 3px 3px 7px #040a0d,
-            inset -3px -3px 7px #0e2835;
-            
-    /* box-shadow:  3px 3px 7px #040a0d,
-             -3px -3px 7px #0e2835; */
+            inset -3px -3px 7px #0e2835,
+            0px 14px 10px rgba(0, 0, 0, 0.5);
 }
 
 body.active-theme .clock {
     border: 10px solid #ddd;
     box-shadow: inset 3px 3px 7px #aeaeae,
-            inset -4px -4px 7px #ffffff;
+            inset -4px -4px 7px #ffffff,
+            0px 14px 10px rgba(0, 0, 0, 0.175);
 }
 
 .clock::before {
@@ -167,4 +168,30 @@ body.active-theme .min::before, body.active-theme .clock::before {
 
 body.active-theme .sec::before {
     background-color: #61bdd4;
+}
+
+.dateStuff {
+    position: absolute;
+    bottom: 50px;
+    font-family: 'nunito';
+    text-align: center;
+}
+
+.dateStuff .time {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: .3rem 1rem;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #1c485e;
+}
+
+.dateStuff .fullDay {
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+body.active-theme .dateStuff .fullDay {
+    color: #333;
 }
