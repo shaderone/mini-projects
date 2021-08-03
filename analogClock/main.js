@@ -6,11 +6,11 @@ const secHand = document.querySelector('.sec')
 
 setInterval(() => {
     const date = new Date()
-    const hh = date.getHours() * 30
-    const mm = date.getMinutes() * deg
-    const ss = date.getSeconds() * deg
+    const currentHour = date.getHours() * 30
+    const currentMinute = date.getMinutes() * deg
+    const currentSeconds = date.getSeconds() * deg
 
-    hrHand.style.transform = `rotate(${(hh) + (mm / 12)}deg)`
-    minHand.style.transform = `rotate(${(mm) + (mm / 12)}deg)`
-    secHand.style.transform = `rotate(${(ss) + (mm / 12)}deg)`
+    hrHand.style.transform = `rotate(${(currentHour) + (currentMinute / 12)}deg)`
+    minHand.style.transform = `rotate(${(currentMinute)}deg)`
+    secHand.style.transform = `rotate(${(currentSeconds)}deg)`
 })

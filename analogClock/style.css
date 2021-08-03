@@ -83,9 +83,9 @@ body {
     top: 0px;
     width: 7px;
     height: 70px;
-    border-radius: 50% 50% 0 0;
+    border-radius: 100% 100% 0 0;
     z-index: 1;
-    background-color: hsl(182, 79%, 58%);
+    background-color: hsl(199, 79%, 58%);
 }
 .min::before {
     content: '';
@@ -95,7 +95,7 @@ body {
     height: 80px;
     border-radius:50% 50% 0 0px;
     z-index: 2;
-    background-color: rgb(30, 105, 107);
+    background-color: rgb(155, 222, 248);
 }
 .sec::before {
     content: '';
