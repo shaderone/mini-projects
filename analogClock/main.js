@@ -14,3 +14,9 @@ setInterval(() => {
     minHand.style.transform = `rotate(${(currentMinute)}deg)`
     secHand.style.transform = `rotate(${(currentSeconds)}deg)`
 })
+
+const themeToggler = document.querySelector('.theme') 
+themeToggler.addEventListener('click', toggleTheme)
+function toggleTheme() {    
+    document.body.classList.toggle('active-theme')
+}

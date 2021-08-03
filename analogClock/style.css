@@ -13,6 +13,50 @@ body {
     min-height: 100vh;
     overflow: hidden;
     background-color: #091921;
+    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .1s linear;
+}
+
+body.active-theme {
+    background-color: #eee;
+}
+
+.theme {
+    position: fixed;
+    top: 10vh;
+    right: 30vw;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+body .theme {
+    border: 2px solid #adadad;
+    background-color: #fff;
+}
+
+body.active-theme .theme {
+    border: 2px solid #a5a5a5;
+    background-color: #091921;
+}
+
+.theme::after {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 100px;
+    cursor: pointer;
+}
+
+body.active-theme .theme::after {
+    content: 'Dark Mode';
+    color: #222;
+}
+
+body .theme::after {
+    content: 'Light Mode';
+    color: #fff;
 }
 
 .clock {
@@ -31,6 +75,12 @@ body {
             
     /* box-shadow:  3px 3px 7px #040a0d,
              -3px -3px 7px #0e2835; */
+}
+
+body.active-theme .clock {
+    border: 10px solid #ddd;
+    box-shadow: inset 3px 3px 7px #aeaeae,
+            inset -4px -4px 7px #ffffff;
 }
 
 .clock::before {
@@ -56,19 +106,16 @@ body {
 .clock .hour .hr {
     width: 130px;
     height: 130px;
-    /* background-color: red; */
 }
 
 .clock .minute .min {
     width: 190px;
     height: 190px;
-    /* background-color: blue; */
 }
 
 .clock .seconds .sec {
     width: 230px;
     height: 230px;
-    /* background-color: yellow; */
 }
 
 .hr, .min, .sec {
@@ -87,6 +134,11 @@ body {
     z-index: 1;
     background-color: hsl(199, 79%, 58%);
 }
+
+body.active-theme .hr::before {
+    background-color: #6d1750;
+}
+
 .min::before {
     content: '';
     position: absolute;
@@ -97,6 +149,11 @@ body {
     z-index: 2;
     background-color: rgb(155, 222, 248);
 }
+
+body.active-theme .min::before, body.active-theme .clock::before {
+    background-color: #1c485e;
+}
+
 .sec::before {
     content: '';
     position: absolute;
@@ -106,4 +163,8 @@ body {
     border-radius: 5px;
     z-index: 3;
     background-color: rgb(185, 57, 110);
+}
+
+body.active-theme .sec::before {
+    background-color: #61bdd4;
 }
