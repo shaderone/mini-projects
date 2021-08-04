@@ -42,7 +42,7 @@ body {
     border-radius: 50%;
     background-color: #fff;
     transform: translate(-50%, -50%) scale(0);
-    animation: scaleSpan .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: scaleSpan .4s ease-out;
 }
 
 @keyframes scaleSpan {
