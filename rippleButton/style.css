@@ -1,0 +1,53 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: rgb(23, 36, 43);
+}
+
+.btn {
+    position: relative;
+    padding:1rem 2rem;
+    border: 1px solid transparent;
+    font-size: 1.25rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: rgb(226, 163, 26);
+    box-shadow:0px 8px 8px rgba(0, 0, 0, 0.418) ;
+    overflow: hidden;
+    cursor: pointer;
+    transition:transform .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:active {
+    outline: 0;
+    transform: scale(.95);
+}
+
+.btn span {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%) scale(0);
+    animation: scaleSpan .4s ease-out;
+}
+
+@keyframes scaleSpan {
+    to {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
