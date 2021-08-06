@@ -19,13 +19,15 @@ body {
     border-radius: 3px;
     border: 2px solid rgb(65, 140, 225);
     background-color: aliceblue;
-    transition: transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin .4s ease-out;
-    /* box-shadow: 0px 4px 6px rgb(65, 108, 156); */
+    transition: transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin .2s ease-out;
 }  
 
-.drop-box.onHover {
+.onHover {
+    border: 2px solid rgb(229, 255, 0);
     transform: scale(1.25);
     margin: 1.5rem 0;
+    background-color: rgb(25, 19, 29);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.699);
 }
 
 .box-fill {
@@ -37,8 +39,18 @@ body {
     cursor: pointer;
 }
 
-.box-fill.onActive {
-    border-top: 2px solid yellow;
-    box-shadow: 0px 6px 6px rgb(0, 0, 0);
+.onActive {
+    border-top: 4px solid yellow;
 }
 
+@media screen and (min-width:768px) {
+    .boxes {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+    }
+    .onHover {
+        margin: 1.25rem 0;
+        transform-origin: bottom;
+    }
+}
