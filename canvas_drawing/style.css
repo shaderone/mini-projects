@@ -1,0 +1,48 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#canvas {
+    height: 80vh;
+    width: 80vw;
+    border: 2px solid salmon;
+}
+
+#tools {
+    display: flex;
+    justify-content: center;
+    background-color: steelblue;
+    width: 80vw;
+    padding: 1rem;
+}
+
+#tools > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    margin: .25rem;
+    cursor: pointer;
+}
+
+#tools > *:last-child {
+    margin-left: auto;
+}
