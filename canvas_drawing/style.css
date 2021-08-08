@@ -16,8 +16,6 @@ body {
 }
 
 #canvas {
-    height: 80vh;
-    width: 80vw;
     border: 2px solid salmon;
 }
 
