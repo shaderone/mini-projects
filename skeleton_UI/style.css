@@ -66,7 +66,11 @@ img {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+    line-height: 10px;
     width: 150px;
+}
+#name {
+    margin-bottom: 10px;
 }
 
 .loader-bg {
