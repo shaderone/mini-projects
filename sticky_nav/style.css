@@ -1,0 +1,100 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    /* background-color: rgb(24, 28, 37); */
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 100px;
+    height: 20vh;
+    width: 100%;
+    background-color: rgb(24, 28, 37);
+}
+
+nav .logo {
+    font-family: 'nunito';
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right,hsl(175, 100%, 64%) 30%, hsl(207, 64%, 56%) 100% );
+    color: transparent;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-left: 5rem;
+}
+
+nav ul li a {
+    position: relative;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: .5rem;
+    display: inline-block;
+    width: 5rem;
+    text-align: center;
+    transition: .4s ease-out;
+    overflow: hidden;
+    font-family: 'nunito';
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    transform: scale(0);
+    transform-origin: right; 
+    transition: transform .4s linear;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: hsl(175, 100%, 64%);
+}
+
+nav ul li a:hover::before {
+    transform: scale(1);
+    transform-origin: left;
+}
+
+header .btn {
+    border: 0;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    padding: .5rem 2rem;
+    cursor: pointer;
+    transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid hsl(219, 100%, 64%);
+    background-color: hsl(241, 100%, 64%);
+    color: #fff;
+}
+
+header .btn:hover {
+    transform: translateY(-2px);
+    padding: 1rem 2rem;
+    box-shadow: 0 5px 8px black;
+}
+
