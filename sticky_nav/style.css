@@ -6,9 +6,19 @@
     text-decoration: none;
 }
 
+.btn {
+    border: 0;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    padding: .5rem 2rem;
+    cursor: pointer;
+    transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 body {
     min-height: 100vh;
     max-width: 100vw;
+    font-family: 'nunito';
 }
 
 header {
@@ -80,21 +90,107 @@ nav ul li a:hover::before {
     transform-origin: left;
 }
 
-header .btn {
-    border: 0;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    padding: .5rem 2rem;
-    cursor: pointer;
-    transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+header .nav-btn {
     border: 2px solid hsl(219, 100%, 64%);
     background-color: hsl(241, 100%, 64%);
     color: #fff;
 }
 
-header .btn:hover {
+header .nav-btn:hover {
     transform: translateY(-2px);
     padding: 1rem 2rem;
     box-shadow: 0 5px 8px black;
 }
 
+.banner {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+.banner-left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    /* background-color: burlywood; */
+    padding: 0 5rem;
+}
+
+
+.banner-header {
+    position: relative;
+}
+
+.banner-header h1{
+  font-size:45px;
+}
+.words{
+  right: -165px;
+  top: 8px;
+  position:absolute;
+  border:0px solid #ddd;
+  height:50px;
+  line-height:50px;
+  font-size:45px;
+  text-transform:uppercase;
+  overflow:hidden;
+  display:inline-block;
+}
+.words span{
+  animation:animate 10s ease infinite;
+  position:relative;
+  display: block;
+  color:hsl(219, 100%, 64%);
+}
+@keyframes animate{
+  0%,100%{
+    top:0;
+  }
+  20%{
+    top:0px;
+  }  
+  25%{
+    top:-50px;
+  }
+  45%{
+    top:-50px;
+  }
+  50%{
+    top:-100px;
+  }
+  70%{
+    top:-100px;
+  }
+  75%{
+    top:-150px;
+  }
+  95%{
+    top:-150px;
+  }
+}
+
+.banner-btn {
+    margin-top: 2rem;
+    padding: .8rem 2rem;
+    border: 2px solid hsl(219, 100%, 64%);
+    background-color: #fff;
+}
+
+.banner-btn:hover {
+    transform: scaleX(1.1);
+    margin-left: 1rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.banner-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-right img {
+    margin-left: 2rem;
+    width: 600px;
+    height: 400px;
+}
