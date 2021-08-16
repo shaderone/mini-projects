@@ -22,10 +22,11 @@ body {
 }
 
 header {
-    height: 100vh;
+    height: 20vh;
     width: 100%;
 }
 nav {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,6 +34,7 @@ nav {
     height: 20vh;
     width: 100%;
     background-color: rgb(24, 28, 37);
+    transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 nav .logo {
@@ -80,6 +82,10 @@ nav ul li a::before {
     transition: transform .4s linear;
 }
 
+nav ul li a.active::before {
+  transform: scale(1);
+}
+
 nav ul li a:hover, nav ul li a.active {
     color: hsl(175, 100%, 64%);
 }
@@ -101,9 +107,39 @@ header .nav-btn:hover {
     box-shadow: 0 5px 8px black;
 }
 
+/* write styles for active nav */
+header.active, header.active nav{
+  height: 12vh;
+}
+
+header.active nav {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+header.active nav ul li a::before {
+  background-color: hsl(241, 100%, 64%);
+}
+
+header.active nav ul li a {
+  color: rgb(24, 28, 37);
+}
+
+header.active nav ul li a:hover, header.active nav ul li a.active {
+    color: hsl(241, 100%, 64%);
+}
+
+header.active .nav-btn:hover {
+  padding: .8rem 2rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
 .banner {
     width: 100%;
     height: 80vh;
+    position: relative;
+    bottom: 0;
     display: flex;
 }
 .banner-left {
@@ -112,10 +148,8 @@ header .nav-btn:hover {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    /* background-color: burlywood; */
     padding: 0 5rem;
 }
-
 
 .banner-header {
     position: relative;
