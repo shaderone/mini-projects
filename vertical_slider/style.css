@@ -1,0 +1,89 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.arrow-btn {
+    padding: .75rem;
+    border: 0;
+    cursor: pointer;
+    background-color: #333;
+}
+
+.arrow-btn i {
+    font-size: 1.25rem;
+    color: #888;
+    transition: .8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.arrow-btn:hover i{
+    color: #fff;
+    font-size: 1.28rem;
+    transform: rotate(360deg);
+}
+
+body {
+    height: 100vh;
+}
+
+.slide-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100%;
+}
+
+.negative-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+}
+
+.negative-slide > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.negative-slide div h1 {
+    font-size: 3rem;
+    font-family: 'nunito';
+    margin-bottom: 1rem;
+}
+
+.positive-slide {
+    height: 100%;
+    width: 65%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.positive-slide > div {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.slide-container .buttons button{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+}
+
+.slide-container .buttons .down-btn {
+    border-radius: 5px 0px 0px 5px ;
+    transform: translate(-100%, 100%);
+}
+.slide-container .buttons .up-btn {
+    border-radius: 0px 5px 5px 0px ;
+}
