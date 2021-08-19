@@ -22,7 +22,49 @@ body {
     min-height: 100vh;
     overflow: hidden;
     background-color: #FAFAFA;
+    transition: .8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+/* body states base on toast-selection */
+body.error {
+    background-color: hsla(0, 78%, 70%, 0.5);
+}
+body.error.active-toast {
+    color: var(--error-clr);
+}
+body.success {
+    background-color: hsl(160, 68%, 39%, 0.5);
+}
+body.success.active-toast {
+    color: var(--success-clr);
+}
+body.warning {
+    background-color: hsl(38, 87%, 56%, 0.5);
+}
+body.warning.active-toast {
+    color: var(--warning-clr);
+}
+body.info {
+    background-color: hsl(202, 98%, 37%, 0.5);
+}
+body.info.active-toast {
+    color: var(--info-clr);
+}
+
+.active-toast {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%) scale(0);
+    font-size: 8rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    opacity: .1;
+    z-index: -1;
+    pointer-events: none;
+    transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 
 #toast-btns {
     display: flex;
@@ -85,7 +127,8 @@ button.info {
     justify-content: space-between;
     width: 100%;
     background-color: #fff;
-    padding: 1rem 0rem 1rem 1.5rem;
+    padding: 1rem 2rem 1rem 1.5rem;
+    margin-top: 1rem;
     border-radius: var(--border-radius);
     box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
 }
@@ -111,7 +154,7 @@ button.info {
     font-family:Verdana, Geneva, Tahoma,sans-serif;
     font-size: .8rem;
     background-color: #dedede;
-    width: 90%;
+    width: 100%;
     padding: .5rem;
     border-radius: var(--border-radius);
     border-left: 3px solid transparent;
@@ -127,6 +170,7 @@ button.info {
 .close i {
     font-size: 1.05rem;
     color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
 
 /* toast states */
