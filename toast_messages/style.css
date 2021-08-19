@@ -1,0 +1,63 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#toast-btns {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#toast-btns button{
+    padding: .8rem 0;
+    width: 6rem;
+    margin: 0 .5rem;
+    /* border-radius: 5px; */
+    border: 0;
+    font-size: 1.1rem;
+    font-family: 'nunito';
+    color: #fff;
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#toast-btns button.error:hover {
+    outline: 5px outset #ee7676;
+}
+#toast-btns button.success:hover {
+    outline: 5px outset #20A779;
+}
+#toast-btns button.warning:hover {
+    outline: 5px outset #F0A92D;
+}
+#toast-btns button.info:hover {
+    outline: 5px outset #0279BD;
+}
+
+#toast-btns button:active {
+    transform: scale(.9);
+}
+
+button.error {
+    background-color: #ee7676;
+}
+button.success {
+    background-color: #20A779;
+}
+button.warning {
+    background-color: #F0A92D;
+}
+button.info {
+    background-color: #0279BD;
+}
