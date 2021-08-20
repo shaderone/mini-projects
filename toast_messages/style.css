@@ -121,6 +121,10 @@ button.info {
     width: 400px;
 }
 
+#toasts.hide {
+    display: none;
+}
+
 .toast {
     position: relative;
     display: flex;
