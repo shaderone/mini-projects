@@ -1,0 +1,132 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --muted: rgb(155, 155, 155);
+    --active-color: #e94b80;
+}
+
+input::placeholder {
+    color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    height: 18vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+nav .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'nunito';
+    color: steelblue;
+}
+
+.title span {
+    font-weight: bold;
+}
+
+nav form {
+    width: 50%;
+}
+
+nav .searchbox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+nav #search {
+    font-family: 'poppins';
+    font-size: .8rem;
+    width: 100%;
+    padding-left: .5rem;
+    height: 2.1rem;
+    transition: .3s ease;
+    border: 0;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--muted);
+    color: #222;
+    background: transparent;
+}
+
+nav .searchbox .search-icon {
+    box-sizing: initial;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    color: var(--muted);
+    top: 50%;
+    right: -.5%;
+    transform: translateY(-50%);
+    background-color: var(--muted);
+    border-radius: 0px 5px 5px 0;
+    border-bottom: 2px solid var(--muted);
+    transition: .3s ease;
+}
+
+nav .searchbox .search-icon i {
+    color: #eee;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.searchbox label {
+    font-family: 'nunito';
+    color: var(--muted);
+    position: absolute;
+    top: 50%;
+    left:0;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.searchbox label span {
+    display: inline-block;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.searchbox #search:focus{
+    outline: 0;
+    background-color: rgb(231, 231, 231);
+    border-color: steelblue;
+}
+
+.searchbox #search:focus ~ .search-icon {
+    background-color: steelblue;
+    border-bottom: 2px solid steelblue;
+}
+
+.searchbox #search:focus ~ .search-icon i {
+    color: #fff;
+}
+
+.searchbox #search:focus + label span {
+    color: steelblue;
+    transform: translateY(-1.75rem);
+}
