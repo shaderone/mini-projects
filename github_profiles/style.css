@@ -18,7 +18,7 @@ input::placeholder {
 body {
     height: 100vh;
     min-height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
     /* background-color: #36393F; */
     background: #485563; 
     background: -webkit-linear-gradient(to right, #29323c, #485563); 
@@ -36,6 +36,7 @@ header {
     background: #E0EAFC;
     background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
     background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+    transition: .3s ease-out;
 }
 
 nav {
@@ -146,10 +147,12 @@ nav .searchbox .search-icon img {
 
 #main {
     position: absolute;
+    display: grid;
+    place-items: center;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 50rem;
+    top: 60%;
+    transform: translate(-50%,-60%);
+    width: 80%;
     height: 20rem;
 }
 
@@ -173,3 +176,121 @@ nav .searchbox .search-icon img {
     opacity: .25;
 }
 
+#main .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    border-radius: 10px;
+    height: 100%;
+    background-color: #272c30;
+}
+
+.card .profile {
+    position: relative;
+    bottom: 30%;
+    transform: translateY(30%);
+    height: 10rem;
+    width: 10rem;
+}
+
+.card .user-img {
+    border-radius: 50%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #232527;
+    box-shadow: 0px 10px 15px #1b1c1d;
+}
+
+.card .user-info {
+    position: relative;
+    width: 90%;
+    top: -10%;
+    font-family: 'nunito';
+    color: #fff;
+}
+
+.card .user-info .stats, .card .user-info .repos-info {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.stats li{
+    width: 30%;
+    padding: .5rem 0;
+    font-size: 1.05rem;
+    color: #fff;
+    background-color: rgb(39, 44, 48);
+    border-radius: 5px;
+    background: linear-gradient(145deg, #2a2f33, #23282b);
+    box-shadow:  2px 2px 5px #212529,
+                -2px -2px 5px #2d3337;
+}
+
+.stats a {
+    display: block;
+    padding-top: .5rem;
+    color: #fff;
+}
+
+.card .user-info .name {
+    margin-top: 1.5rem;
+    font-family: 'poppins';
+}
+
+.card .user-info .bio {
+    color: #ddd;
+}
+
+.card .user-info .repos-info {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: .3rem;
+}
+
+.repos-info li a {
+    padding: .5rem .8rem;
+    border-radius: 5px;
+    color: rgb(0, 137, 250);
+    background-color: #ddd;
+}
+
+@media screen and (max-width:720px) {
+    header {
+        height: 12vh;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.301);
+    }
+
+    #main {
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .card .user-img {
+        width: 9rem;
+        height: 9rem;
+        bottom: 10%;
+        transform: translateY(20%);
+    }
+
+    .card .user-info .stats {
+        margin-top: -1rem;
+    }
+
+    .card .user-info .stats li a {
+        font-size: 1rem;
+    }
+    .card .user-info .bio {
+        font-size: .9rem;
+    }
+    .card .user-info .repos-info li {
+        margin-top: 1.5rem;
+    }
+}
