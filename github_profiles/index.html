@@ -17,10 +17,10 @@
 <body>
     <header>
         <nav>
-            <div class="title"><img src="https://img.icons8.com/wired/256/000000/github.png" width="40" height="40"/><span>NitroGit</span>.com</div>
-            <form action="#">
+            <div class="title"><img src="assets/logo.png"/>&nbsp;<span>NitroGit</span></div>
+            <form>
                 <div class="searchbox">
-                    <input autocomplete="off" type="text" id="search">
+                    <input autocomplete="off" type="text" id="search" placeholder="Search for a github user" required>
                     <label>Search for a github user</label>
                     <span class="search-icon"><i><img src="https://img.icons8.com/cotton/50/000000/search--v2.png" / width="20" height="20"></i></span>
                 </div>
@@ -29,13 +29,11 @@
     </header>
 
     <main id="main">
-        <div class="emtpy-state">
-            <h1>No active searches...</h1>
-            <img src="https://img.icons8.com/bubbles/500/000000/image-file.png" />
-        </div>
+        <!-- <a href='https://www.freepik.com/vectors/website'>Website vector created by stories - www.freepik.com</a> -->
     </main>
     <!-- fontawesome script -->
     <script src="https://kit.fontawesome.com/39350fd9df.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- Custom Javascript -->
     <script src="main.js" type="text/javascript"></script>
 </body>
