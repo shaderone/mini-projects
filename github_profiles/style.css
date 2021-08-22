@@ -116,7 +116,7 @@ nav .searchbox .search-icon img {
     font-family: 'nunito';
     color: var(--muted);
     position: absolute;
-    left:1%;
+    left:1.25%;
     pointer-events: none;
 }
 
