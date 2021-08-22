@@ -160,6 +160,15 @@ nav .searchbox .search-icon img {
     height: 20rem;
 }
 
+#main .closeBtn {
+    position: absolute;
+	right: 10%;
+	top: 5%;
+	color: #ccc;
+	font-size: 1.5rem;
+    cursor: pointer;
+}
+
 #main .emtpy-state {
     position: absolute;
     left: 50%;
@@ -211,7 +220,7 @@ nav .searchbox .search-icon img {
 .card .user-info {
     position: relative;
     width: 90%;
-    top: -10%;
+    top: -5%;
     font-family: 'nunito';
     color: #fff;
 }
@@ -250,7 +259,8 @@ nav .searchbox .search-icon img {
 }
 
 .card .user-info .repos-info {
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
