@@ -9,3 +9,29 @@ labelWords.forEach(label => {
     labelText.innerHTML += splitLabel
 })
 
+// Api
+const API_URL = 'https://api.github.com/users/'
+
+const getUserData = async userName => {
+    try {
+        const { data } = await axios(API_URL + userName)
+        console.log(data);
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+const form = document.querySelector('header form')
+const search = document.querySelector('#search')
+
+form.addEventListener('submit', ev => {
+    ev.preventDefault()
+    userName = search.value 
+    if(userName) {
+        getUserData(userName)
+        search.value = ''
+    } else {
+        console.log('no user');
+    }
+})
+
