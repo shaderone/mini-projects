@@ -8,7 +8,7 @@
 
 :root {
     --muted: rgb(155, 155, 155);
-    --active-color: #e94b80;
+    --active-color: #c8c568;
 }
 
 input::placeholder {
@@ -32,10 +32,10 @@ header {
     background-color: #fff;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    box-shadow: 0px 5px 8px black;
-    background: #E0EAFC;
-    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
-    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+    background: #485563; 
+    background: -webkit-linear-gradient(to right, #29323c, #485563);
+    background: linear-gradient(to right, #29323c, #485563); 
     transition: .3s ease-out;
 }
 
@@ -54,7 +54,7 @@ nav .title {
     font-size: 1.5rem;
     font-weight: 600;
     font-family: 'nunito';
-    color: #29323c;
+    color: var(--active-color);
 }
 
 .title span {
@@ -128,18 +128,18 @@ nav .searchbox .search-icon img {
 .searchbox #search:focus, .searchbox #search:required:valid, .searchbox #search:not(:placeholder-shown){
     outline: 0;
     background-color: rgb(231, 231, 231);
-    border-color: steelblue;
+    border-color: var(--active-color);
 }
 
 .searchbox #search:focus ~ .search-icon, 
 .searchbox #search:not(:placeholder-shown) ~ .search-icon{
-    background-color: steelblue;
-    border-bottom: 2px solid steelblue;
+    background-color: var(--active-color);
+    border-bottom: 2px solid var(--active-color);
 }
 
 .searchbox #search:focus + label span, 
 .searchbox #search:required:valid + label span {
-    color: steelblue;
+    color: var(--active-color);
     transform: translateY(-1.6rem);
 }
 
