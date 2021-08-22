@@ -116,9 +116,7 @@ nav .searchbox .search-icon img {
     font-family: 'nunito';
     color: var(--muted);
     position: absolute;
-    top: 50%;
-    left:1%;
-    transform: translateY(-50%);
+    left:3%;
     pointer-events: none;
 }
 
@@ -127,20 +125,26 @@ nav .searchbox .search-icon img {
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.searchbox #search:focus{
+.searchbox #search:focus, .searchbox #search:required:valid, .searchbox #search:not(:placeholder-shown){
     outline: 0;
     background-color: rgb(231, 231, 231);
     border-color: steelblue;
 }
 
-.searchbox #search:focus ~ .search-icon {
+.searchbox #search:focus ~ .search-icon, 
+.searchbox #search:not(:placeholder-shown) ~ .search-icon{
     background-color: steelblue;
     border-bottom: 2px solid steelblue;
 }
 
-.searchbox #search:focus + label span {
+.searchbox #search:focus + label span, 
+.searchbox #search:required:valid + label span {
     color: steelblue;
-    transform: translateY(-1.75rem);
+    transform: translateY(-1.6rem);
+}
+
+.searchbox #search:not(:placeholder-shown) + label {
+    transform: translateY(0rem);
 }
 
 /* user-card styles */
