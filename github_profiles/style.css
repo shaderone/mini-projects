@@ -267,7 +267,7 @@ nav .searchbox .search-icon img {
     gap: .3rem;
 }
 
-.repos-info li a {
+.repos-info a {
     padding: .5rem .8rem;
     border-radius: 5px;
     color: rgb(0, 137, 250);

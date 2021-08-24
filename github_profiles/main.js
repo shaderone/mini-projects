@@ -68,7 +68,6 @@ const createRepoCard = (repos) => {
         repoEl.href = repo.html_url
         repoEl.target = '_blank'
         repoEl.innerText = `${repo.name}`
-        // repoParent.appendChild(repo)
         repoParent.appendChild(repoEl)
         repoContainer.appendChild(repoParent)
     })
@@ -112,7 +111,7 @@ main.addEventListener('click', (ev) => {
 
 function handleError(userName) {
     main.innerHTML = `<div class="emtpy-state">
-        <h1>${userName} does not exist!</h1>
+        <h1>"${userName}" does not exist!</h1>
         <img src="assets/err.png" />
     </div>`
 }
