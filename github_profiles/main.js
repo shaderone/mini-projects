@@ -28,7 +28,7 @@ const getUserData = async userName => {
 const getUserRepos = async userName => {
     const name = userName
     try {
-        const { data } = await axios(API_URL + userName + '/repos')
+        const { data } = await axios(API_URL + userName + '/repos?sort=created')
         createRepoCard(data);
     } catch (err) {
         handleRepoError()
@@ -63,13 +63,13 @@ const createRepoCard = (repos) => {
     repos
     .slice(0,5)
     .forEach(repo => {
-        // const repoParent = document.createElement('li')
+        const repoParent = document.createElement('li')
         const repoEl = document.createElement('a')
         repoEl.href = repo.html_url
         repoEl.target = '_blank'
         repoEl.innerText = `${repo.name}`
-        // repoParent.appendChild(repo)
-        repoContainer.appendChild(repoEl)
+        repoParent.appendChild(repoEl)
+        repoContainer.appendChild(repoParent)
     })
 }
 
@@ -111,7 +111,7 @@ main.addEventListener('click', (ev) => {
 
 function handleError(userName) {
     main.innerHTML = `<div class="emtpy-state">
-        <h1>${userName} does not exist!</h1>
+        <h1>"${userName}" does not exist!</h1>
         <img src="assets/err.png" />
     </div>`
 }
