@@ -28,7 +28,7 @@ const getUserData = async userName => {
 const getUserRepos = async userName => {
     const name = userName
     try {
-        const { data } = await axios(API_URL + userName + '/repos')
+        const { data } = await axios(API_URL + userName + '/repos?sort=created')
         createRepoCard(data);
     } catch (err) {
         handleRepoError()
