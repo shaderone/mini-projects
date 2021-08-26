@@ -26,7 +26,7 @@ img {
     padding: .5rem 0;
     background-color: rgb(240, 240, 240);
     border-radius: 5px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .post__info{
@@ -70,6 +70,7 @@ img {
     font-size: 1.75rem;
     transform: rotate(90deg);
     margin-right: 1rem;
+    color: #333;
 }
 
 .post__image{
@@ -85,6 +86,19 @@ img {
     height: 100%;
 }
 
+.post__image .heart {
+    position: absolute;
+    animation: showHeart .6s linear;
+    transform: translate(-50%,-50%) scale(0);
+}
+
+@keyframes showHeart {
+    to {
+        transform: translate(-50%,-50%) scale(10);
+        opacity: 0;
+    }
+}
+
 .post__description {
     margin-bottom: .5rem;
     padding: 0 1rem;
@@ -92,14 +106,37 @@ img {
 
 .post__description span {
     color: steelblue;
+    cursor: pointer;
 }
 
 .post__interactors {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: .5rem 1rem;
     width: 100%;
 }
+
+.post__interactors .like {
+    display: flex;
+    align-items: center;
+}
+
 .post__interactors i {
     font-size: 1.5rem;
+    color: rgb(231, 231, 231);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #555;
+    cursor: pointer;
+    /* text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; */
+}
+
+.post__interactors i.fa-heart:active {
+    -webkit-text-fill-color: rgb(255, 47, 47);
+    -webkit-text-stroke-color: #fff;
+}
+.post__interactors i.fa-bookmark:active {
+    -webkit-text-fill-color: steelblue;
+    -webkit-text-stroke-color: #fff;
 }
