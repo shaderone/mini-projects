@@ -134,11 +134,11 @@ img {
     /* text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; */
 }
 
-.post__interactors i.fa-heart:active {
+.post__interactors i.fa-heart.active {
     -webkit-text-fill-color: hsl(0, 100%, 60%);
     -webkit-text-stroke-color: #fff;
 }
-.post__interactors i.fa-bookmark:active {
+.post__interactors i.fa-bookmark.active {
     -webkit-text-fill-color: steelblue;
     -webkit-text-stroke-color: #fff;
 }

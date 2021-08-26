@@ -1,7 +1,10 @@
 const postImg = document.querySelector('.post__image')
 const likeCount = document.querySelector('.count')
+const oneTimeHeart = document.querySelector('.oneTimeHeart')
+const oneTimePostSave = document.querySelector('.oneTimePostSave')
 
 let initialClickTime = 0
+let count = 0
 
 postImg.addEventListener('click', ev => {
     if(initialClickTime === 0) {
@@ -33,4 +36,18 @@ const showHeart = (eventObj) => {
     heartElm.style.left = x_axis + 'px'
 
     postImg.appendChild(heartElm)
+
+    likeCount.innerText = ++count + ' '
 } 
+
+oneTimeHeart.addEventListener('click', function() {
+    this.classList.toggle('active')
+    if(this.classList.contains('active')) {
+        likeCount.innerText = ++count + ' '
+    } else {
+        likeCount.innerText = --count + ' '
+    }
+})
+oneTimePostSave.addEventListener('click', function() {
+    this.classList.toggle('active')
+})
