@@ -37,6 +37,9 @@ const showHeart = (eventObj) => {
 
     postImg.appendChild(heartElm)
 
+    setTimeout(() => {
+        heartElm.remove()
+    }, 1000)
     likeCount.innerText = ++count + ' '
 } 
 
