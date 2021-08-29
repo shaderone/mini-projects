@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -12,12 +14,82 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    background-color: rgb(40, 47, 109);
 }
 
-h1 {
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/1.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: -2;
+}
+
+main h1 {
     color: #fff;
     font-family: 'nunito';
-    font-size: 2.5rem;
     text-transform: uppercase;
 }
+
+main h3 {
+    font-family: 'nunito';
+    color: #ccc;
+}
+
+main h3 span {
+    font-family: 'Raleway';
+}
+
+@media (min-width: 75rem) {
+    main h1 {
+        font-size: 5rem;
+    }
+    main h3 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 75rem) {
+    main h1 {
+        font-size: 4rem;
+    }
+    main h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 48rem) {
+    main h1 {
+        font-size: 3.5rem;
+    }
+    main h3 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 31.25rem) {
+    main h1 {
+        font-size: 2.5rem;
+    }
+    main h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* later - use clamp for font sizes */
