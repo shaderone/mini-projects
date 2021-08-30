@@ -50,11 +50,13 @@ class TypeWriter {
 }
 
 const Initialize = () => {
-    const textElm = document.querySelector('.textContent')
-    const words = JSON.parse(textElm.getAttribute('data-words'))
-    const delayTime = textElm.getAttribute('data-wait')
-
-    new TypeWriter(textElm, words, delayTime)
+    setTimeout(() => {
+        const textElm = document.querySelector('.textContent')
+        const words = JSON.parse(textElm.getAttribute('data-words'))
+        const delayTime = textElm.getAttribute('data-wait')
+    
+        new TypeWriter(textElm, words, delayTime)
+    }, 2500);
 }
 
 window.onload = function() {
