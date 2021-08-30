@@ -42,18 +42,32 @@ main::before {
 }
 
 main h1 {
-    color: #fff;
+    color: rgb(95, 184, 243);
     font-family: 'nunito';
     text-transform: uppercase;
 }
 
 main h3 {
     font-family: 'nunito';
-    color: #ccc;
+    color: rgb(233, 233, 233);
 }
 
 main h3 span {
     font-family: 'Raleway';
+}
+
+main h3 span .inner-text {
+    color: rgb(72, 253, 253);
+    text-transform: uppercase;
+    padding-right:.2rem;
+    border-right: 2px solid rgba(218, 218, 218, 0.8);
+    animation: blinkCursor 750ms linear infinite;
+}
+
+@keyframes blinkCursor {
+    to {
+        border-right-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
 @media (min-width: 75rem) {
