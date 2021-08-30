@@ -42,16 +42,41 @@ main::before {
 }
 
 main h1 {
+    position: relative;
     color: rgb(95, 184, 243);
     font-family: 'nunito';
     text-transform: uppercase;
+    will-change: transform, opacity;
+    animation: slideDown 2s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform:translateY(-2rem);
+        opacity: .25;
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 main h3 {
+    position: relative;
     font-family: 'nunito';
     color: rgb(233, 233, 233);
+    will-change: transform, opacity;
+    opacity: 0;
+    animation: slideUp 2s ease .5s forwards;
 }
 
+@keyframes slideUp {
+    from {
+        transform: translateY(2rem);
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 main h3 span {
     font-family: 'Raleway';
 }
