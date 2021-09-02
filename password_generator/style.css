@@ -13,6 +13,11 @@
     --secondary: hsl(189, 100%, 50%);
 }
 
+input {
+    border: 0;
+    outline: 0;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -171,11 +176,19 @@ body {
     font-size: 1.25rem;
 }
 
-#options .options__1 .inputs {
-    margin-top: 1rem;
+#options .options__1  {
+    position: relative;
 }
 
-#options .options__1 input[type='text']{
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.options__1 input[type='number']{
     border:0;
     outline: 0;
     width: 3rem;
@@ -191,11 +204,51 @@ body {
     border-radius: 5px;
 }
 
-#options .form-group input[type='range'] {
-    width: calc(100% - 5rem);
+#range {
+    position: absolute;
+    right: 0;
+    top: 65%;
+    -webkit-appearance: none;
+    height: 5px;
+    border-radius: 10px;
+    width: calc(100% - 4.5rem);
+    background-color: #fff;
 }
 
-#options .form-group:not(.options__1) {
+#range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    height: 1.5rem;
+    width: 1.5rem;
+    z-index: 3;
+    border-radius: 50%;
+    cursor: pointer;
+    background: linear-gradient(145deg, #383d43, #2f3339);
+    box-shadow: 3px 3px 5px #1f2125,
+    -3px -3px 5px #464e57;
+}
+
+#range .range-slider {
+    position: absolute;
+    background-color: red;
+    height: 5px;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.range-slider .range-progress {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: red;
+}
+
+#range:active {
+    background-color: #bbb;
+}
+
+.form-group:not(.options__1) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -204,14 +257,14 @@ body {
     border-radius: 5px;
 }
 
-#options .form-group input[type='checkbox'] {
+.form-group input[type='checkbox'] {
     transform: scale(1.5);
     transform-origin: center right;
     outline: 0;
     border: 0;
 }
 
-#options .generate-btn {
+.generate-btn {
     border: 0;
     width: 100%;
     padding: .5rem 0;
@@ -224,7 +277,7 @@ body {
     cursor: pointer;
 }
 
-#options .generate-btn:active {
+.generate-btn:active {
     box-shadow: inset 4px 4px 9px #2b2f34,
                 inset -4px -4px 9px #3d434a;
 }
