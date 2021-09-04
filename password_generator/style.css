@@ -73,7 +73,7 @@ body {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #fff;
-    transition:transform .3s ease, opacity .4s ease;
+    transition:transform .3s ease;
 }
 
 .hamburger::before, .hamburger::after {
@@ -85,15 +85,17 @@ body {
 .hamburger::after {bottom: .5rem;}
 
 .hamburger-container.active .hamburger{
-    opacity: 0;
-    transform: translateX(100%);
+    visibility: hidden;
 }
 
 .hamburger-container.active .hamburger::after {
-    transform: rotate(45deg);
+    visibility: visible;
+    transform: translateY(8px) rotate(45deg);
 }
-.hamburger-container.active .hamburger::after {
-    transform: rotate(45deg);
+.hamburger-container.active .hamburger::before {
+    color: #fff;
+    visibility: visible;
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .form-group {
@@ -118,6 +120,13 @@ body {
     user-select: none;
 }
 
+.form-group.result-group span.error {
+    position: absolute;
+    bottom: -1rem;
+    font-family: 'nunito';
+    color: rgb(248, 79, 79);
+}
+
 .form-group .result-modifiers{
     position: absolute;
     right: 1rem;
@@ -129,6 +138,7 @@ body {
     cursor: pointer;
     font-size: 1.1rem;
     margin-left: 1rem;
+    user-select: none;
 }
 
 #main .actions {
@@ -228,22 +238,6 @@ input[type=number]::-webkit-outer-spin-button {
     -3px -3px 5px #464e57;
 }
 
-#range .range-slider {
-    position: absolute;
-    background-color: red;
-    height: 5px;
-    width: 100%;
-    z-index: 2;
-    overflow: hidden;
-}
-
-.range-slider .range-progress {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background-color: red;
-}
-
 #range:active {
     background-color: #bbb;
 }
@@ -257,15 +251,32 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 5px;
 }
 
+.form-group.result-group {
+    border: 0;
+}
+
+.form-group:not(.options__1) label {
+    order: 1;
+    border-bottom: 1px solid transparent;
+}
+
 .form-group input[type='checkbox'] {
     transform: scale(1.5);
     transform-origin: center right;
     outline: 0;
     border: 0;
+    order: 2;
+}
+
+.form-group input[type='checkbox']:focus + label, .generate-btn:focus {
+    border-bottom:1px solid var(--secondary);
+    border-radius: 5px;
 }
 
 .generate-btn {
+    outline: 0;
     border: 0;
+    border-bottom: 1px solid transparent;
     width: 100%;
     padding: .5rem 0;
     font-size: 1.5rem;
@@ -275,6 +286,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 3px 3px 5px #292c31,
     -3px -3px 5px #3f464d;
     cursor: pointer;
+    user-select: none;
 }
 
 .generate-btn:active {
