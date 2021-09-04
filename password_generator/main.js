@@ -44,6 +44,27 @@ const lowerCaseElm = document.querySelector('#lowercase')
 const numbersElm = document.querySelector('#number')
 const symbolsElm = document.querySelector('#symbol')
 const generateBtn = document.querySelector('.generate-btn')
+const copyToast = document.querySelector('.copy-toast')
+//copy text
+clipboardElm.onclick = () => {
+    if(resultElm.value === '') { console.log('nothing to copy') } 
+    else {
+        navigator.clipboard.writeText(resultElm.value).then(function() {
+            console.log('text copied')
+            if(copyToast.classList.contains('show')) {
+                copyToast.classList.remove('show')
+                setTimeout(() => {
+                    copyToast.classList.add('show')
+                }, 0);
+            } else {
+                copyToast.classList.add('show')
+                setTimeout(() => {
+                    copyToast.classList.remove('show')
+                }, 1250);
+            }
+        })
+    }
+}
 
 const generateNewPassword = (lower, upper, number, symbol, length) => {
     let generatedPassword = ``
