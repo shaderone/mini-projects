@@ -108,3 +108,22 @@ body {
     transform: translateX(calc(100px - 63px)) translateY(-3px);
     box-shadow: none;
 }
+
+a.credit {
+    color: #222;
+    font-size: 1.1rem;
+    font-family: 'nunito';
+    position: fixed;
+    bottom: 1rem;
+    text-align: center;
+}
+
+a.credit span {
+    font-weight: bold;
+    border: 2px solid transparent;
+    transition: border .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+a.credit:hover span {
+    border-bottom: 2px solid steelblue;
+}
