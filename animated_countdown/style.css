@@ -10,7 +10,11 @@ body {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
+}
+
+#spaceStation {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -18,10 +22,19 @@ body {
 .counter {
     position: relative;
     height: 100vh;
-    max-width: 320px;
+    width: 400px;
+}
+
+#spaceStation h1 {
+    font-family: 'nunito';
+    position: absolute;
+    top: 20%;
+    font-size: 2.15rem;
+    text-transform: uppercase;
 }
 
 .counter__initial, .counter__final {
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,10 +43,9 @@ body {
 .counter__initial {
     text-align: center;
     transform: translate(-50%,-50%) scale(1);
-    /*background-color: antiquewhite;*/
 }
 
-.counter__initial h3{
+.counter__initial h3, .counter__final h3{
     font-size: 1.25rem;
 }
 
@@ -62,7 +74,6 @@ body {
     font-family: 'nunito';
     overflow: hidden;
     position: relative;
-    /*background-color: yellow;*/
 }
 
 .counter__countdownNumbers span {
@@ -73,12 +84,12 @@ body {
     transform-origin: bottom center;
 }
 
-.counter__countdownNumbers span.active {
+.counter__countdownNumbers span.fill {
     transform: translate(-50%,-50%) rotate(0deg);
-    animation: rotateIn .7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: rotateIn .5s ease-in-out;
 }
 
-.counter__countdownNumbers span.inactive {
+.counter__countdownNumbers span.pop {
     animation: rotateOut .5s ease-in-out;
 }
 
