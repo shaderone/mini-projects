@@ -16,11 +16,11 @@
 
 <body>
     <main id="spaceStation">
-        <h1>Initiating Countdown...</h3>
+        <h1 class="countdown_start_notifier">Initiating Countdown...</h3>
             <div class="counter">
-                <div class="counter__initial">
+                <div class="counter__initial hide">
                     <div class="counter__countdownNumbers">
-                        <span class="fill">10</span>
+                        <span>10</span>
                         <span>9</span>
                         <span>8</span>
                         <span>7</span>
@@ -31,10 +31,10 @@
                         <span>2</span>
                         <span>1</span>
                     </div>
-                    <h3>Ready For Launch!</h3>
+                    <h3 class="countdown_end_notifier">Ready For Launch!</h3>
                 </div>
                 <div class="counter__final">
-                    <h3>Lifting off</h4>
+                    <h3 id="lift-off">Lift off</h4>
                     <button id="relaunch" class="relaunchBtn"><span>Re-launch</span> <i class="fas fa-space-shuttle"></i></button>
                 </div>
             </div>

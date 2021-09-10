@@ -25,11 +25,12 @@ body {
     width: 400px;
 }
 
-#spaceStation h1 {
+#spaceStation h1.countdown_start_notifier {
     text-align: center;
     font-family: 'nunito';
     position: absolute;
-    top: 20%;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 3rem;
     text-transform: uppercase;
     background-image: linear-gradient(to right, #d9d9d9 0%, rgba(0,0,0,0.5), 30%, #d9d9d9 40%, #d9d9d9 100%);
@@ -37,8 +38,10 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: skeload 5s linear infinite;
+    transform-origin: top center;
+    animation:skeload 5s linear infinite, fadeUp 1s 3s ease-in-out forwards;
 }
+
 
 @keyframes skeload {
     0% {
@@ -48,6 +51,23 @@ body {
         background-position: 450px 0;
     }
 }
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(0%);
+    }
+    20% {
+        transform: translateY(50%);
+    }
+    40% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(-500%);
+        opacity: 0;
+    }
+}
+
 
 .counter__initial, .counter__final {
     text-align: center;
@@ -61,7 +81,7 @@ body {
     transform: translate(-50%,-50%) scale(1);
 }
 
-.counter__initial h3, .counter__final h3{
+.counter__initial h3{
     font-size: 1.25rem;
 }
 
@@ -72,6 +92,7 @@ body {
 }
 
 .counter__final {
+    top: 40%;
     transform: translate(-50%,-50%) scale(0);
 }
 
@@ -109,6 +130,12 @@ body {
     animation: rotateOut .5s ease-in-out;
 }
 
+.counter__final #lift-off {
+    font-family: 'nunito';
+    font-size: 3rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
 
 .counter__final .relaunchBtn {
     position: relative;
