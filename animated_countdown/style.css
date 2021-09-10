@@ -26,11 +26,27 @@ body {
 }
 
 #spaceStation h1 {
+    text-align: center;
     font-family: 'nunito';
     position: absolute;
     top: 20%;
-    font-size: 2.15rem;
+    font-size: 3rem;
     text-transform: uppercase;
+    background-image: linear-gradient(to right, #d9d9d9 0%, rgba(0,0,0,0.5), 30%, #d9d9d9 40%, #d9d9d9 100%);
+    background-size: 450px 400px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: skeload 5s linear infinite;
+}
+
+@keyframes skeload {
+    0% {
+        background-position: -450px 0;
+    } 
+    100% {
+        background-position: 450px 0;
+    }
 }
 
 .counter__initial, .counter__final {
@@ -93,6 +109,60 @@ body {
     animation: rotateOut .5s ease-in-out;
 }
 
+
+.counter__final .relaunchBtn {
+    position: relative;
+    padding: 1rem ;
+    margin-top: 1rem;
+    width: max-content;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(89, 81, 160);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: padding-right .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.counter__final .relaunchBtn span {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.counter__final .relaunchBtn:hover {
+    padding-right: 3rem;
+}
+
+.counter__final .relaunchBtn i{
+    right: -1rem;
+    opacity: 0;
+    position: absolute;
+    transform: rotate(-90deg);
+    transition: right .3s ease, opacity .3s ease;
+}
+
+.counter__final .relaunchBtn:hover i {
+    right: 1rem;
+    opacity: 1;
+    animation: floatShip 1.5s .3s ease-in-out infinite;
+}
+
+@keyframes floatShip {
+    0% {
+        transform: translateY(0px) rotate(-90deg);
+    } 
+    50% {
+        transform: translateY(-7px) rotate(-90deg);
+        box-shadow: -18px 8px 15px rgba(0, 0, 0, 0.2),
+                    -18px -8px 15px rgb(0, 0, 0, 0.2);
+    } 
+    100% {
+        transform: translateY(0px) rotate(-90deg);
+    }
+}
+
+
 @keyframes rotateIn {
     0% {
         transform: translate(-50%,-50%) rotate(140deg);
@@ -122,4 +192,15 @@ body {
 
 .counter__initial h3 {
     font-family: 'poppins';
+}
+
+@media screen and (max-width:520px) {
+    #spaceStation h1 {
+        font-size: 2.15rem;
+    }
+}
+@media screen and (max-width:320px) {
+    #spaceStation h1 {
+        font-size: 1.15rem;
+    }
 }
