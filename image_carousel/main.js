@@ -1,7 +1,7 @@
 const images = document.querySelectorAll('.carousel__image img')
-const carousel_indicators = document.querySelectorAll('.carousel__indicator span')
 const previousBtn = document.querySelector('.arrow-left')
 const nextBtn = document.querySelector('.arrow-right')
+const carousel_indicators = document.querySelectorAll('.carousel__indicator span')
 
 let activeImageIndex = 0
 
@@ -20,6 +20,13 @@ const slideImage = direction => {
         }
         carousel_image.style.transform = `translateX(-${activeImageIndex}00%)`
     }
+    carousel_indicators.forEach((bar, index) => {
+        if(index === activeImageIndex) {
+            bar.classList.add('active')
+        } else {
+            bar.classList.remove('active')
+        }
+    })
 }
 
 previousBtn.addEventListener('click', () => slideImage('prev'))
