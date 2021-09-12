@@ -42,11 +42,12 @@ body {
 .carousel__container::before {
     content: '';
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     inset: 0;
+    z-index: 8;
 }
 
-.carousel__container i{
+.carousel__container i.expand{
     position: absolute;
     right: 1rem;
     top: 1rem;
@@ -78,6 +79,7 @@ body {
     width: 100%;
     text-align: center;
     transform: translateX(-50%);
+    z-index: 9;
 }
 
 .carousel__indicator span {

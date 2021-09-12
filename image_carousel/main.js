@@ -2,11 +2,11 @@ const images = document.querySelectorAll('.carousel__image img')
 const previousBtn = document.querySelector('.arrow-left')
 const nextBtn = document.querySelector('.arrow-right')
 const carousel_indicators = document.querySelectorAll('.carousel__indicator span')
+const carousel_image = document.querySelector('.carousel__image')
 
 let activeImageIndex = 0
 
 const slideImage = direction => {
-    const carousel_image = document.querySelector('.carousel__image')
     if(direction === 'prev') {
         activeImageIndex--
         if(activeImageIndex < 0) {
@@ -28,6 +28,27 @@ const slideImage = direction => {
         }
     })
 }
+
+carousel_indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', (ev) => {
+        activeImageIndex = index
+        carousel_image.style.transform = `translateX(-${activeImageIndex}00%)`
+        const getSiblings = (elm) => {
+            if (!elm || !elm.parentNode) return
+            // Setup siblings array, get the first sibling
+            var sibling = elm.parentNode.firstChild;
+            // Loop through each sibling and push to the array
+            while (sibling) {
+                if (sibling.nodeType === 1 && sibling !== elm && sibling !== ev.target) {
+                    sibling.classList.remove('active')
+                }
+                sibling = sibling.nextSibling
+            }
+        }
+        getSiblings(indicator)
+        ev.target.classList.add('active')
+    })
+})
 
 previousBtn.addEventListener('click', () => slideImage('prev'))
 nextBtn.addEventListener('click', () => slideImage('next'))
