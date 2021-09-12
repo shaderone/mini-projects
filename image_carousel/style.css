@@ -1,0 +1,114 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+i {
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+
+.carousel {
+    position: relative;
+    border-radius: 5px;
+    background: #eee;
+    box-shadow:  0px 5px 10px #cecece;
+    overflow-x: hidden;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.carousel__container {
+    position: relative;
+}
+
+.carousel__container::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    inset: 0 0 3px 0;
+}
+
+.carousel__container i{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    padding: 1rem 1.05rem;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel__indicator {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel__indicator span {
+    display: inline-block;
+    width: 2.5rem;
+    height: 0.25rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255);
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.carousel__indicator span.active,
+.carousel__indicator span:active {
+    background-color: rgb(0, 255, 157);
+}
+
+.carousel__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem .5rem 1rem;
+}
+
+.carousel__buttons .arrow {
+    border: 0;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    background: #eeeeee;
+    box-shadow:  2px 2px 4px #c3c3c3,
+             -2px -2px 4px #ffffff;
+    transition: box-shadow .5s ease;
+    cursor: pointer;
+}
+
+.carousel__buttons .arrow:active {
+    box-shadow: inset 2px 2px 4px #c3c3c3,
+            inset -2px -2px 4px #ffffff;
+}
+
+.carousel__buttons .arrow i {
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0,.7);
+    transition:color .25s ease-in-out;
+}
+
+.carousel__buttons .arrow:hover i{
+    color: rgb(0, 255, 157);
+}
