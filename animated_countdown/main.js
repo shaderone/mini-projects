@@ -3,6 +3,9 @@ const counter_initial = document.querySelector('.counter__initial')
 const counter_final = document.querySelector('.counter__final')
 const launchBtn = document.querySelector('#relaunch')
 
+const countdown_start_notifier = document.querySelector('.countdown_start_notifier')
+
+let countdown_end_notifier = document.querySelector('.countdown_end_notifier')
 
 const initiateCountdown = () => {
     counter_numbers.forEach((countdownNumber, id) => {
@@ -13,6 +16,9 @@ const initiateCountdown = () => {
                 countdownNumber.classList.add('pop')
             } else if (ev.animationName === 'rotateOut' && countdownNumber.nextElementSibling) {
                 countdownNumber.nextElementSibling.classList.add('fill')
+                if(countdownNumber.nextElementSibling.innerText === '3') {
+                    countdown_end_notifier.innerText = 'Launching Now...'
+                }
             } else {
                 counter_initial.classList.add('hide')
                 counter_final.classList.add('show')
@@ -23,16 +29,38 @@ const initiateCountdown = () => {
 
 const initiateReLaunch = () => {
     counter_initial.classList.remove('hide')
-    counter_final.classList.remove('show')
 
     counter_numbers.forEach(num => {
         num.className = ``
     })
 
-    counter_numbers[0].classList.add('fill')
+    countdown_end_notifier.innerText = 'Ready For Launch!'
 }
 
-// This is the function which starts the countdown animation
-setTimeout(initiateCountdown, 100);
+const init = (key) => {
+    if(key === 'start') {
+        setTimeout(() => {
+            counter_numbers[0].classList.add('fill')
+            counter_initial.classList.remove('hide')
+            initiateCountdown()
+        }, 0);
+    } else if (key === 'restart') {
+        countdown_start_notifier.style.animation = 'none';
+        countdown_start_notifier.offsetHeight; /* trigger reflow */
+        countdown_start_notifier.style.animation = null;
+        counter_final.classList.remove('show')
+        counter_numbers[0].classList.add('fill')
+        setTimeout(() => {
+            initiateReLaunch()
+        }, 3500);
+    }
+}
 
-launchBtn.addEventListener('click', initiateReLaunch)
+
+countdown_start_notifier.addEventListener('animationend', () => {
+    init('start')
+})
+
+launchBtn.addEventListener('click', () => {
+    init('restart')
+})
