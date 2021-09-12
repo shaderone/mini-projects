@@ -29,20 +29,21 @@ body {
     border-radius: 5px;
     background: #eee;
     box-shadow:  0px 5px 10px #cecece;
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 80vw;
     margin: 0 auto;
 }
 
 .carousel__container {
     position: relative;
+    overflow: hidden;
 }
 
 .carousel__container::before {
     content: '';
     position: absolute;
     background-color: rgba(0, 0, 0, 0.2);
-    inset: 0 0 3px 0;
+    inset: 0;
 }
 
 .carousel__container i{
@@ -53,12 +54,29 @@ body {
     border-radius: 50%;
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(0, 0, 0, 0.3);
+    transform-origin: top right;
+    z-index: 10;
+}
+
+.carousel__image {
+    display: flex;
+    /*transition: transform 1s cubic-bezier(1,-0.4, .5, 1.4);*/
+    transition: transform .8s ease-in-out;
+    transform: translateX(-0%);
+    max-height: 70vh;
+    text-align: center;
+}
+
+.carousel__image img {
+    min-width: 100%;
 }
 
 .carousel__indicator {
     position: absolute;
     bottom: 1em;
     left: 50%;
+    width: 100%;
+    text-align: center;
     transform: translateX(-50%);
 }
 
