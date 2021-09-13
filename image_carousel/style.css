@@ -1,0 +1,190 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+i {
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+
+.carousel {
+    position: relative;
+    border-radius: 5px;
+    background: #eee;
+    box-shadow:  0px 5px 10px #cecece;
+    overflow: hidden;
+    max-width: 90vw;
+    margin: 0 auto;
+    max-height: 90vh;
+}
+
+.carousel__expandBox {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000c2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 20;
+}
+
+.carousel__expandBox.hide {
+    display: none;
+}
+
+.expandBox {
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+    overflow: hidden;
+    margin-bottom: .75rem;
+}
+
+.expandBox .close {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: 1.25rem;
+    color: #000;
+    padding: 1rem 1.25rem;
+    border-radius: 50%;
+    color: rgba(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel__container {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.carousel__container::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    inset: 0;
+    z-index: 8;
+}
+
+.carousel__container i.expand{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    padding: 1rem 1.05rem;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
+    transform-origin: top right;
+    z-index: 10;
+}
+
+.carousel__image {
+    display: flex;
+    /*transition: transform 1s cubic-bezier(1,-0.4, .5, 1.4);*/
+    transition: transform .8s ease-in-out;
+    transform: translateX(-0%);
+    max-height: 70vh;
+    text-align: center;
+}
+
+.carousel__image img {
+    min-width: 100%;
+}
+
+.carousel__indicator {
+    position: absolute;
+    bottom: .5em;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateX(-50%);
+    z-index: 9;
+}
+
+.carousel__indicator span {
+    display: inline-block;
+    width: 2.5rem;
+    height: 0.25rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255);
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.carousel__indicator span.active,
+.carousel__indicator span:active {
+    background-color: rgb(0, 255, 157);
+}
+
+.carousel__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem .5rem 1rem;
+}
+
+.carousel__buttons .arrow {
+    border: 0;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    background: #eeeeee;
+    box-shadow:  2px 2px 4px #c3c3c3,
+             -2px -2px 4px #ffffff;
+    transition: box-shadow .5s ease;
+    cursor: pointer;
+}
+
+.carousel__buttons .arrow:active {
+    box-shadow: inset 2px 2px 4px #c3c3c3,
+            inset -2px -2px 4px #ffffff;
+}
+
+.carousel__buttons .arrow i {
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0,.7);
+    transition:color .25s ease-in-out;
+}
+
+.carousel__buttons .arrow:hover i{
+    color: rgb(0, 255, 157);
+}
+
+@media (min-width: 720px) {
+    .carousel {
+        max-width: 60vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .carousel {
+        min-height: 60vh;
+    }
+
+    .carousel__buttons {
+        padding-top: 1.5rem;
+    }
+}
