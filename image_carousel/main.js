@@ -4,9 +4,44 @@ const nextBtn = document.querySelector('.arrow-right')
 const carousel_indicators = document.querySelectorAll('.carousel__indicator span')
 const carousel_image = document.querySelector('.carousel__image')
 
+class Timer {
+    constructor(fn, t) {
+        var timerObj = setInterval(fn, t)
+
+        this.stop = function () {
+            if (timerObj) {
+                clearInterval(timerObj)
+                timerObj = null
+            }
+            return this
+        }
+
+        // start timer using current settings (if it's not already running)
+        this.start = function () {
+            if (!timerObj) {
+                this.stop()
+                timerObj = setInterval(fn, t)
+            }
+            return this
+        }
+
+        // start with new or original interval, stop current interval
+        this.reset = function (newT = t) {
+            t = newT
+            return this.stop().start()
+        }
+    }
+}
+
+const timer = new Timer(function () {
+    slideImage('next')
+}, 2000);
+
+
 let activeImageIndex = 0
 
 const slideImage = direction => {
+    timer.reset(2000);
     if(direction === 'prev') {
         activeImageIndex--
         if(activeImageIndex < 0) {
@@ -31,6 +66,7 @@ const slideImage = direction => {
 
 carousel_indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', (ev) => {
+        timer.reset(2000);
         activeImageIndex = index
         carousel_image.style.transform = `translateX(-${activeImageIndex}00%)`
         const getSiblings = (elm) => {

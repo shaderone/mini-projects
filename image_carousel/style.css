@@ -76,7 +76,7 @@ body {
 
 .carousel__indicator {
     position: absolute;
-    bottom: 1em;
+    bottom: .5em;
     left: 50%;
     width: 100%;
     text-align: center;
