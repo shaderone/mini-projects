@@ -35,6 +35,44 @@ body {
     max-height: 90vh;
 }
 
+.carousel__expandBox {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000c2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 20;
+}
+
+.carousel__expandBox.hide {
+    display: none;
+}
+
+.expandBox {
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+    overflow: hidden;
+    margin-bottom: .75rem;
+}
+
+.expandBox .close {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: 1.25rem;
+    color: #000;
+    padding: 1rem 1.25rem;
+    border-radius: 50%;
+    color: rgba(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .carousel__container {
     position: relative;
     overflow: hidden;
