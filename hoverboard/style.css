@@ -18,16 +18,17 @@ body {
 .container {
     display: grid;
     place-items: center;
-    grid-template-columns: repeat(11, 1fr);
+    grid-template-columns: repeat(18, 1fr);
 }
 
 .shape {
     background-color: #1a1a1a;
     box-shadow: 0 0px 2px black;
     margin: 2px;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1rem;
+    width: 1rem;
     transition: 2s ease;
+    font-size: 0;
 }
 
 .shape:hover {
