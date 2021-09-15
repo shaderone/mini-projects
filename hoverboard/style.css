@@ -15,10 +15,38 @@ body {
     background-color: #222;
 }
 
+.colorpad__options {
+    position: absolute;
+    top: 1rem;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgb(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px 0 rgb(0, 0, 0, .25);
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border: 1px solid rgb(95, 95, 95);
+    border-radius: 10px;
+    width: 90%;
+}
+
+.colorpad__options .form-group {
+    display: flex;
+    align-items: center;
+}
+
+.colorpad__options label {
+    font-family: 'nunito';
+    margin-left: .5em;
+    color: #fff;
+}
+
 .container {
     display: grid;
     place-items: center;
     grid-template-columns: repeat(18, 1fr);
+    margin-top: 1rem;
 }
 
 .shape {
