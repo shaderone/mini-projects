@@ -18,10 +18,13 @@ const removeColor = square => {
     square.style.boxShadow = `0 0 2px black`
 }
 
+const checkbox = document.getElementById('checkbox')
 for(let idx = 0; idx < _shapes; idx++) {
     const square = document.createElement('div')
     square.className = `shape`
     container.appendChild(square)
     square.addEventListener('mouseover', () => setColor(square))
-    square.addEventListener('mouseout', () => removeColor(square))
+    square.addEventListener('mouseout', () => {
+        checkbox.checked ? '' : removeColor(square)
+    })
 }
