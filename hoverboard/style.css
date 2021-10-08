@@ -62,3 +62,48 @@ body {
 .shape:hover {
     transition-duration: 0s;
 }
+
+.checkbox {
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 0.5em;
+  font-size: 1.25rem;
+  color: var(--color);
+}
+
+.checkbox__input input {
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+}
+
+.checkbox__control {
+  display: inline-grid;
+  width: 1em;
+  height: 1em;
+  border-radius: 5em;
+  border: 0.1em solid currentColor;
+  transform: translateY(0.15em);
+}
+
+.checkbox__input {
+  display: grid;
+  grid-template-areas: "checkbox";
+}
+.checkbox__input > * {
+  grid-area: checkbox;
+}
+
+.checkbox__control svg {
+  transition: transform 0.1s ease-in 25ms;
+  transform: scale(0);
+  transform-origin: bottom left;
+}
+
+.checkbox__input input:checked + .checkbox__control {
+  background-color: rgb(255, 151, 87);
+}
+
+.checkbox__input input:focus + .checkbox__control {
+  border-color:rgb(255, 108, 108)    ;
+}
