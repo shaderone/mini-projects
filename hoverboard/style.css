@@ -42,6 +42,19 @@ body {
     color: #fff;
 }
 
+.colorpad__options .reverter {
+    color: #fff;
+    margin-left: .5em;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid gray;
+    cursor: pointer;
+}
+
 .container {
     display: grid;
     place-items: center;

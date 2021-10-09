@@ -1,5 +1,7 @@
 const container = document.querySelector('#container')
 const colors = ['#FF6700', '#1F51FF', '#CCFF00', '#C724B1', '#D22730', '#08FF08']
+const selectedColor = document.querySelector('#color-store')
+const reverter = document.querySelector('span.reverter')
 
 const _shapes = 306
 
@@ -8,7 +10,10 @@ const getRandomColor = () => {
 }
 
 const setColor = square => {
-    const color = getRandomColor()  
+    reverter.addEventListener('click', () => {
+        selectedColor.innerText = ''
+    })
+    const color = selectedColor.innerText ? selectedColor.innerText : getRandomColor()  
     square.style.backgroundColor = color
     square.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
 }
