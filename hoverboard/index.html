@@ -22,11 +22,18 @@
             <label for="color-picker">Select Color</label>
         </div>
         <div class="form-group">
-            <input type="radio" id="stopFade">
-            <label for="stopFade">Stop Fading</label>
+            <label class="checkbox">
+                <span class="checkbox__input">
+                    <input type="checkbox" id="checkbox" name="checkbox" />
+                    <span class="checkbox__control"></span>
+                </span>
+                <span class="radio__label">Don't Fade</span>
+            </label>
         </div>
     </div>
+
     <div class="container" id="container"></div>
+    
     <!-- fontawesome script -->
     <script src="https://kit.fontawesome.com/39350fd9df.js"></script>
     <!-- Custom Javascript -->
@@ -36,14 +43,18 @@
 
     <script> 
         $(document).ready(function () {
-            $('#color-picker').spectrum({
-                type: "component",
-                showPalette: false,
-                togglePaletteOnly: false,
-                showAlpha: false,
-                allowEmpty: false,
-                showInitial: true,
-            });
+        $('#color-picker').spectrum({
+            type: "component",
+            showPalette: false,
+            togglePaletteOnly: false,
+            showAlpha: false,
+            allowEmpty: false,
+            showInitial: true,
+            color: "#f00",
+            change: function (color) {
+                console.log(color.toHexString())
+            }
+        });
         });
     </script>
 </body>
