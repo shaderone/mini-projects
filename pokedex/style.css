@@ -1,0 +1,136 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+:root {
+    --primary: #181527;
+    --dark: #17263b;
+    --light: #2e4b74;
+
+    --text: #cfcde7;
+    --bg-light: #e4e2f5;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background-color: var(--bg-light);
+}
+
+header.nav-active .sidebar{
+    width: 8%;
+}
+
+header.nav-active .sidebar__togglebtn i {
+    transform: rotate(180deg);
+}
+
+header.nav-active .sidebar__logoImg {
+    margin: 0 ;
+}
+header.nav-active .sidebar__logoText {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+header.nav-active .hide {
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.sidebar {
+    /* here position:sticky is better since the sticky elements stay in the document flow */
+    position: sticky;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background-color: var(--primary);
+    padding: 2rem;
+    transition: .3s ease;
+}
+
+/* logo and collapse btn */
+.sidebar__top {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__logoImg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.sidebar__logoText {
+    margin-left: auto;
+    font-size: 1.35rem;
+    transition: opacity .2s ease .15s;
+}
+
+.sidebar__togglebtn {
+    position: absolute;
+    padding: .35rem .75rem;
+    background-color: var(--primary);
+    right: -4.25rem;
+    border-radius: .35rem;
+    cursor: pointer;
+    transform: translateX(-8px);
+    opacity: 0;
+    transition: .3s ease-in-out;
+    pointer-events: none;
+}
+
+.sidebar__togglebtn:hover {
+    background-color: var(--dark);
+}
+
+.sidebar__togglebtn i {
+    font-size: 1.1rem;
+    transition: .3s ease;
+}
+
+.sidebar:hover .sidebar__togglebtn, .sidebar__togglebtn.active {
+    transform: translateX(0px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.sidebar__togglebtn:active {
+    transition: transform 2s ease-in-out;
+    padding: .3rem .675rem;
+}
+
+.sidebar::before {
+    content: '';
+    position: absolute;
+    width: 2.25rem;
+    height: 100%;
+    top: 0;
+    left: 100%;
+}
