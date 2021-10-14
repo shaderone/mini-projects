@@ -84,10 +84,11 @@ header.nav-active .hide {
 .sidebar__logoImg {
     width: 2.5rem;
     height: 2.5rem;
+    cursor: pointer;
 }
 
 .sidebar__logoText {
-    margin-left: auto;
+    margin-left: 1rem;
     font-size: 1.35rem;
     transition: opacity .2s ease .15s;
 }
@@ -133,4 +134,35 @@ header.nav-active .hide {
     height: 100%;
     top: 0;
     left: 100%;
+}
+
+
+.sidebar__search {
+    min-height: 2.7rem;
+    margin: 2rem 0 1.7rem;
+    display: grid;
+    grid-template-columns: 2.7rem 1fr;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50px;
+    background-color: var(--light);
+}
+
+.sidebar__search .searchbar {
+    border: 0;
+    outline: 0;
+    height: 100%;
+    background-color: transparent;
+    width: 100%;
+    color: #fff;
+    font-family:  'nunito', sans-serif;
+    padding-right: 1rem;
+}
+.sidebar__search .searchbar, .sidebar__search .searchbar::placeholder {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.sidebar__search .searchbar::placeholder {
+    color: var(--text);
 }
