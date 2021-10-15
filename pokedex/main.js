@@ -1,4 +1,4 @@
-const navToggler = document.querySelector('.sidebar__togglebtn')
+const navToggler = document.querySelector('.sidebar__logoImg')
 const searchBtn = document.querySelector('.sidebar__search .search-icon')
 
 navToggler.addEventListener('click', function () {
