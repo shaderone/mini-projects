@@ -44,10 +44,6 @@ header.nav-active .sidebar{
     width: 8%;
 }
 
-header.nav-active .sidebar__togglebtn i {
-    transform: rotate(180deg);
-}
-
 header.nav-active .sidebar__logoImg {
     margin: 0 ;
 }
@@ -92,50 +88,6 @@ header.nav-active .hide {
     font-size: 1.35rem;
     transition: opacity .2s ease .15s;
 }
-
-.sidebar__togglebtn {
-    position: absolute;
-    padding: .35rem .75rem;
-    background-color: var(--primary);
-    right: -4.25rem;
-    border-radius: .35rem;
-    cursor: pointer;
-    transform: translateX(-8px);
-    opacity: 0;
-    transition: .3s ease-in-out;
-    pointer-events: none;
-}
-
-.sidebar__togglebtn:hover {
-    background-color: var(--dark);
-}
-
-.sidebar__togglebtn i {
-    font-size: 1.1rem;
-    transition: .3s ease;
-}
-
-.sidebar:hover .sidebar__togglebtn, .sidebar__togglebtn.active {
-    transform: translateX(0px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    opacity: 1;
-    pointer-events: all;
-}
-
-.sidebar__togglebtn:active {
-    transition: transform 2s ease-in-out;
-    padding: .3rem .675rem;
-}
-
-.sidebar::before {
-    content: '';
-    position: absolute;
-    width: 2.25rem;
-    height: 100%;
-    top: 0;
-    left: 100%;
-}
-
 
 .sidebar__search {
     min-height: 2.7rem;
