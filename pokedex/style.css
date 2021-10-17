@@ -180,8 +180,27 @@ svg path {
 
 .sidebar__items {
     position: relative;
-    overflow: hidden;
-    height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 70vh;
+    padding-right: .5rem;
+}
+
+.sidebar__items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar__items::-webkit-scrollbar-thumb {
+    background-color: var(--text);
+    border-radius: 50px;
+}
+.sidebar__items::-webkit-scrollbar-thumb:hover {
+    background-color: #868692;
+    border-radius: 50px;
+}
+.sidebar__items::-webkit-scrollbar-track {
+    background-color: #4c4c556c;
+    border-radius: 50px;
 }
 
 .sidebar__items ul {
@@ -190,6 +209,9 @@ svg path {
 
 .sidebar__items ul li a[data-active="0"] {
     margin-top: -1rem;
+}
+.sidebar__items ul li a[data-active="14"] {
+    margin-bottom: -1rem;
 }
 
 .sidebar__items ul li{
