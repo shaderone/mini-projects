@@ -1,9 +1,10 @@
-*, *::before, *::after {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 a {
     text-decoration: none;
@@ -19,12 +20,14 @@ img {
 }
 
 :root {
-    --primary: #181527;
-    --dark: #17263b;
-    --light: #2e4b74;
+    --primary: #272d3f;
+    --dark: #18253a;
+    --light: #2d4c7ab0;
 
-    --text: #cfcde7;
+    --text: #b8b6cc;
     --bg-light: #e4e2f5;
+
+    --custom-clr: #2DF8BB;
 }
 
 body {
@@ -36,7 +39,7 @@ header {
     display: flex;
     height: 100vh;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
     background-color: var(--bg-light);
 }
 
@@ -49,23 +52,27 @@ header.nav-active .sidebar__togglebtn i {
 }
 
 header.nav-active .sidebar__logoImg {
-    margin: 0 ;
+    margin: 0;
 }
 header.nav-active .sidebar__logoText {
     opacity: 0;
-    visibility: hidden;
     pointer-events: none;
 }
+
+header.nav-active .tooltip{
+    opacity: 1;
+    transform: translateX(100%) translateY(-50%) scale(1);
+}
+
 header.nav-active .hide {
     opacity: 0;
     transition: .3s ease;
 }
 
 .sidebar {
-    /* here position:sticky is better since the sticky elements stay in the document flow */
     position: sticky;
     width: 20%;
-    height: 100%;
+    max-height: 100%;
     top: 0;
     left: 0;
     color: #fff;
@@ -74,7 +81,6 @@ header.nav-active .hide {
     transition: .3s ease;
 }
 
-/* logo and collapse btn */
 .sidebar__top {
     position: relative;
     display: flex;
@@ -166,18 +172,6 @@ header.nav-active .hide {
     color: var(--text);
 }
 
-
-svg {
-    margin-top: .25rem;
-    margin-right: .25rem;
-    width: 1.5em;
-    height: 1.5em;
-}
-
-svg path {
-    fill: var(--text);
-}
-
 .sidebar__items {
     position: relative;
     overflow-x: hidden;
@@ -209,10 +203,11 @@ svg path {
     position: relative;
 }
 
-.sidebar__items ul li a[data-active="0"] {
+.sidebar__items ul li:first-of-type a {
     margin-top: -1rem;
 }
-.sidebar__items ul li a[data-active="14"] {
+
+.sidebar__items ul li:last-of-type a {
     margin-bottom: -1rem;
 }
 
@@ -235,19 +230,36 @@ svg path {
     border-radius: 8px;
     text-transform: uppercase;
     color: var(--text);
-    background-color: #332f4625;
+    background-color: #141d2e44;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom .2s ease-out;
+    box-sizing: border-box;
+}
+
+.sidebar__items ul li a:hover {
+    border-bottom: 3px solid #4995ff;
+}
+
+.sidebar__items ul li a img {
+    filter: invert(43%) sepia(1%) saturate(3663%) hue-rotate(209deg) brightness(102%) contrast(81%);
+    width: 2.5em;
+    height: 2.5em;
+    padding: .5em;
+    transition: filter .3s ease .3s;
+}
+
+.sidebar__items ul li a .text{
+    text-align: left;
+    transition: color .3s ease .3s, font-weight .3s ease .3s;
+}
+
+.sidebar__items ul li a.active img {
+    filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%)
 }
 
 .sidebar__items ul li a.active .text{
     color: #fff;
     font-weight: bold;
-}
-.sidebar__items ul li a.active svg path {
-    fill: #fff;
-}
-
-.sidebar__items ul li a .text{
-    text-align: left;
 }
 
 .active-tab {

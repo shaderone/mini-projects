@@ -1,7 +1,7 @@
 const navTogglers = document.querySelectorAll('.sidebar__logoImg, .sidebar__togglebtn')
 const searchBtn = document.querySelector('.sidebar__search .search-icon')
 const activeTab = document.querySelector('.sidebar__items .active-tab')
-const sidebar__items = document.querySelectorAll('.sidebar__items a')
+const sidebar_links = document.querySelectorAll('.sidebar__items a')
 
 
 navTogglers.forEach(toggler => toggler.addEventListener('click', function () {
@@ -20,16 +20,20 @@ searchBtn.addEventListener('click', function () {
 
 let currentActiveTabIndex = 0
 function moveActiveTab() {
-    let tabTop = currentActiveTabIndex * ((3 * 16) + 16)
-    activeTab.style.transform = `translateY(${tabTop}px)`
+    // since height is 3rem and padding is 1rem , 3+1=4
+    let tabTop = currentActiveTabIndex * 4
+    activeTab.style.transform = `translateY(${tabTop}rem)`
 }
 
 function changeLink() {
     //remove any existing active classes
-    sidebar__items.forEach(item => item.classList.remove('active'))
+    sidebar_links.forEach(item => item.classList.remove('active'))
     this.classList.add('active')
 
     currentActiveTabIndex = this.dataset.active
     moveActiveTab()
 }
-sidebar__items.forEach(item => item.addEventListener('click', changeLink))
+sidebar_links.forEach((item, index) => {
+    item.setAttribute("data-active", index);
+    item.addEventListener('click', changeLink)
+})
