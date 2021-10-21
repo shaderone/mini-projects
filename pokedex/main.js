@@ -45,7 +45,7 @@ const tooltip = document.querySelector('.tooltip')
 const sidebar = document.querySelector('.sidebar__items')
 
 pokeArr.forEach((pokeType, idx) => {
-    tooltip.innerHTML += `<span>${pokeType}</span>`
+    tooltip.innerHTML += `<span><div></div>${pokeType}</span>`
 })
 
 function setScroll() {
