@@ -35,6 +35,7 @@ function changeLink() {
 }
 sidebar_links.forEach((item, index) => {
     item.setAttribute("data-active", index);
+    item.classList.add('after')
     item.addEventListener('click', changeLink)
     item.addEventListener('mouseenter', function () { handleTooltip(this, 'show') }, false)
     item.addEventListener('mouseleave', function () { handleTooltip(this, 'hide') }, false)
