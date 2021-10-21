@@ -59,6 +59,11 @@ header.nav-active .sidebar__logoText {
     pointer-events: none;
 }
 
+header.nav-active .tooltip{
+    opacity: 1;
+    pointer-events: all;
+}
+
 header.nav-active .hide {
     opacity: 0;
     transition: .3s ease;
@@ -172,6 +177,7 @@ header.nav-active .hide {
     overflow-x: hidden;
     overflow-y: scroll;
     height: 63vh;
+    padding-bottom: .25rem;
     padding-right: 1rem;
     margin-right: -1.5rem;
     color: rgba(0, 0, 0, 0);
@@ -213,6 +219,7 @@ header.nav-active .hide {
     transition: .3s ease;
 }
 .sidebar__items ul li a{
+    position: relative;
     min-height: 3rem;
     margin: 1rem 0;
     display: grid;
@@ -222,17 +229,70 @@ header.nav-active .hide {
     text-align: center;
     font-size: 1.1rem;
     font-family: 'nunito';
-    border-radius: 8px;
+    border-radius: inherit;
     text-transform: uppercase;
     color: var(--text);
     background-color: #141d2e44;
-    border-bottom: 3px solid transparent;
-    transition: border-bottom .2s ease-out;
+    transition: .2s ease .3s;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
-.sidebar__items ul li a:hover {
-    border-bottom: 3px solid #4995ff;
+.sidebar__items ul li a.active::before, .sidebar__items ul li a.active::after  {
+    display: none;
+}
+
+.sidebar__items ul li a::before {
+    position: absolute;
+    content: '';
+    top: 0%;
+    right: 0;
+    width: 0;
+    height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: #5489d3;
+}
+
+.sidebar__items ul li a:hover::before {
+    animation: toggleWidth .5s ease .4s, toggleTop .3s ease .7s, toggleOpacity .1s ease 1s;
+}
+
+@keyframes toggleWidth {
+    to {
+        width: 5px;
+    }
+}
+@keyframes toggleTop {
+    to {
+        top: 85%;
+    }
+}
+@keyframes toggleOpacity {
+    to {
+        opacity: 0;
+    }
+}
+
+.sidebar__items ul li a.after::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: #5489d3;
+}
+
+.sidebar__items ul li a.after:hover::after {
+    animation: toggleHeight .3s ease .8s forwards;
+}
+@keyframes toggleHeight {
+    to {
+        height: 5px;
+    }
 }
 
 .sidebar__items ul li a img {
@@ -240,7 +300,7 @@ header.nav-active .hide {
     width: 2.5em;
     height: 2.5em;
     padding: .5em;
-    transition: filter .3s ease .3s;
+    transition: filter 0s ease .2s;
 }
 
 .sidebar__items ul li a .text{
@@ -268,7 +328,6 @@ header.nav-active .hide {
     transition:transform .3s ease-in-out;
 }
 
-
 .tooltip {
     position: absolute;
     top: calc(100% - 74.5%);
@@ -277,8 +336,12 @@ header.nav-active .hide {
     flex-direction: column;
     height: 63vh;
     padding-bottom: .5rem;
+    padding-left: 1rem;
     overflow-x: hidden;
     overflow-y: scroll;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
 }
 
 .tooltip::-webkit-scrollbar {
@@ -299,6 +362,31 @@ header.nav-active .hide {
     transform: translateX(-100%);
     pointer-events: none;
     transition: .3s ease;
+    position: relative;
+}
+
+.tooltip span div {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transform-origin: top left;
+    background: #5489d3;
+    z-index: -1;
+    transition: .3s ease .1s;
+}
+
+.tooltip span::after {
+    content: '';
+    position: absolute;
+    border: 10px solid transparent;
+    border-right-color: var(--primary);
+    transform: translateX(-3.55rem);
+    transition: border-right-color .3s ease .2s;
+    z-index: -2;
 }
 
 .tooltip span:first-of-type {
@@ -312,4 +400,12 @@ header.nav-active .hide {
 .tooltip span.active {
     opacity: 1;
     transform: translateX(0) scale(1);
+}
+
+.tooltip span.active::after {
+    border-right-color: #5489d3;
+}
+
+.tooltip span.active div {
+    width: 5%;
 }

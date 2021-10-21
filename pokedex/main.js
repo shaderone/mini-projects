@@ -35,6 +35,7 @@ function changeLink() {
 }
 sidebar_links.forEach((item, index) => {
     item.setAttribute("data-active", index);
+    item.classList.add('after')
     item.addEventListener('click', changeLink)
     item.addEventListener('mouseenter', function () { handleTooltip(this, 'show') }, false)
     item.addEventListener('mouseleave', function () { handleTooltip(this, 'hide') }, false)
@@ -45,7 +46,7 @@ const tooltip = document.querySelector('.tooltip')
 const sidebar = document.querySelector('.sidebar__items')
 
 pokeArr.forEach((pokeType, idx) => {
-    tooltip.innerHTML += `<span>${pokeType}</span>`
+    tooltip.innerHTML += `<span><div></div>${pokeType}</span>`
 })
 
 function setScroll() {
