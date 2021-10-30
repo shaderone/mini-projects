@@ -204,7 +204,8 @@ header.nav-active .hide {
     position: relative;
 }
 
-.sidebar__items ul li:first-of-type a {
+/* second selector is for the filtered list */
+.sidebar__items ul li:first-of-type a, .sidebar__items ul li[data-active="0"] a {
     margin-top: -1rem;
 }
 
@@ -216,8 +217,23 @@ header.nav-active .hide {
     position: relative;
     margin: 1rem 0;
     border-radius: 8px;
-    transition: .3s ease;
+    transition: .5s ease;
 }
+
+.sidebar__items ul li.hide {
+    position: absolute;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+/* to avoid extra padding&margin after filter */
+.sidebar__items ul li.hide a {
+    margin: 0;
+    padding: 0;
+}
+
 .sidebar__items ul li a{
     position: relative;
     min-height: 3rem;
@@ -252,9 +268,10 @@ header.nav-active .hide {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background: #5489d3;
+    transition: width .3s ease .4s, top .3s ease .7s, opacity .1s ease 1s;
 }
 
-.sidebar__items ul li a:hover::before {
+header.nav-active .sidebar__items ul li a:hover::before {
     animation: toggleWidth .5s ease .4s, toggleTop .3s ease .7s, toggleOpacity .1s ease 1s;
 }
 
@@ -274,7 +291,7 @@ header.nav-active .hide {
     }
 }
 
-.sidebar__items ul li a.after::after {
+header.nav-active .sidebar__items ul li a.after::after {
     position: absolute;
     content: '';
     bottom: 0;
@@ -284,6 +301,7 @@ header.nav-active .hide {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     background: #5489d3;
+    transition: height .3s ease .8s;
 }
 
 .sidebar__items ul li a.after:hover::after {
@@ -356,6 +374,7 @@ header.nav-active .hide {
     font-size: 1.1rem;
     border-radius: 8px;
     padding: 1rem;
+    width: 6rem;
     margin-bottom: 1rem;
     background-color: var(--primary);
     opacity: 0;
@@ -384,7 +403,7 @@ header.nav-active .hide {
     position: absolute;
     border: 10px solid transparent;
     border-right-color: var(--primary);
-    transform: translateX(-3.55rem);
+    left: -1rem;
     transition: border-right-color .3s ease .2s;
     z-index: -2;
 }
