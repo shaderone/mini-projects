@@ -2,7 +2,9 @@ const navTogglers = document.querySelectorAll('.sidebar__logoImg, .sidebar__togg
 const searchBtn = document.querySelector('.sidebar__search .search-icon')
 const activeTab = document.querySelector('.sidebar__items .active-tab')
 const sidebar_links = document.querySelectorAll('.sidebar__items a')
+const searchbar = document.querySelector('.sidebar__search .searchbar')
 
+let currentActiveTabIndex = 0
 
 navTogglers.forEach(toggler => toggler.addEventListener('click', function () {
     document.querySelector('header').classList.toggle('nav-active')
@@ -18,7 +20,41 @@ searchBtn.addEventListener('click', function () {
     this.nextElementSibling.focus()
 })
 
-let currentActiveTabIndex = 0
+// search filter
+searchbar.addEventListener('keyup', function (ev) {
+    let query = ev.target.value.toLowerCase();
+    var matchedLinks = []
+    sidebar_links.forEach((link) => {
+        if (link.parentElement.classList.contains('hide')) link.parentElement.classList.remove('hide')
+        //remove any existing data-actives
+        link.parentElement.removeAttribute('data-active')
+
+        const pokeTypeName = link.querySelector('span.text').innerText
+        if (pokeTypeName.toLowerCase().indexOf(query) != -1) {
+            matchedLinks.push(link.parentElement)
+            // setting new data-active attribues to the unfiltered ones
+            matchedLinks.forEach((link, index) => {
+                link.setAttribute('data-active', index)
+                if (link.classList.contains('hide')) link.classList.remove('hide')
+            })
+        } else {
+            link.parentElement.classList.add('hide')
+        }
+    })
+
+    const matchedTooltips = [];
+    Array.from(tooltip.children).forEach(span => {
+        if (span.innerText.toLowerCase().indexOf(query) != -1 || query === '') {
+            matchedTooltips.push(span)
+            matchedTooltips.forEach(span => span.style.display = 'flex')
+        } else {
+            span.style.display = 'none'
+        }
+    })
+
+})
+
+
 function moveActiveTab() {
     // since height is 3rem and padding is 1rem , 3+1=4
     let tabTop = currentActiveTabIndex * 4
@@ -33,22 +69,26 @@ function changeLink() {
     currentActiveTabIndex = this.dataset.active
     moveActiveTab()
 }
+
 sidebar_links.forEach((item, index) => {
-    item.setAttribute("data-active", index);
+    item.parentElement.setAttribute("data-active", index)
+    // for sidebar-link-tooltip animation
     item.classList.add('after')
+    item.setAttribute("data-active", index);
     item.addEventListener('click', changeLink)
     item.addEventListener('mouseenter', function () { handleTooltip(this, 'show') }, false)
     item.addEventListener('mouseleave', function () { handleTooltip(this, 'hide') }, false)
 })
 
-const pokeArr = `Normal Fire Water Grass Electric Ice Fighting Poison Ground Flying Psychic Bug Rock Ghost Dark Dragon Steel Fairy`.split(' ')
+// element creation
+const pokeArr = `Normal Fire Water Grass Electric Ice Fighting Poison Ground Wings Psychic Bug Rock Ghost Dark Dragon Steel Fairy`.split(' ')
 const tooltip = document.querySelector('.tooltip')
 const sidebar = document.querySelector('.sidebar__items')
 
-pokeArr.forEach((pokeType, idx) => {
+pokeArr.forEach(pokeType => {
     tooltip.innerHTML += `<span><div></div>${pokeType}</span>`
 })
-
+// function to set same scrolllevel to both tooltips and sidebar links
 function setScroll() {
     tooltip.scrollTop = sidebar.scrollTop
 }
