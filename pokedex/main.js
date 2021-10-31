@@ -23,6 +23,8 @@ searchBtn.addEventListener('click', function () {
 // search filter
 searchbar.addEventListener('keyup', function (ev) {
     let query = ev.target.value.toLowerCase();
+    // to reset the active tab's position on empty/clearing query
+    if(query === '') activeTab.style.transform = `translateY(0rem)`
     var matchedLinks = []
     sidebar_links.forEach((link) => {
         if (link.parentElement.classList.contains('hide')) link.parentElement.classList.remove('hide')
@@ -31,14 +33,18 @@ searchbar.addEventListener('keyup', function (ev) {
 
         const pokeTypeName = link.querySelector('span.text').innerText
         if (pokeTypeName.toLowerCase().indexOf(query) != -1) {
+            link.parentElement.classList.add('filter')
             matchedLinks.push(link.parentElement)
             // setting new data-active attribues to the unfiltered ones
             matchedLinks.forEach((link, index) => {
                 link.setAttribute('data-active', index)
+                if(link.dataset.active == 0) link.firstElementChild.classList.add('active')
+                else link.firstElementChild.classList.remove('active')
                 if (link.classList.contains('hide')) link.classList.remove('hide')
             })
         } else {
             link.parentElement.classList.add('hide')
+            link.parentElement.classList.remove('filter')
         }
     })
 
@@ -65,8 +71,7 @@ function changeLink() {
     //remove any existing active classes
     sidebar_links.forEach(item => item.classList.remove('active'))
     this.classList.add('active')
-
-    currentActiveTabIndex = this.dataset.active
+    this.parentElement.classList.contains('filter') ? currentActiveTabIndex = this.parentElement.dataset.active : currentActiveTabIndex = this.dataset.active
     moveActiveTab()
 }
 
