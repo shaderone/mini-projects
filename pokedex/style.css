@@ -39,8 +39,8 @@ header {
     display: flex;
     height: 100vh;
     position: relative;
-    overflow: hidden;
-    background-color: var(--bg-light);
+    overflow-x: hidden;
+    background-color: var(--text);
 }
 
 header.nav-active .sidebar{
@@ -79,6 +79,7 @@ header.nav-active .hide {
     background-color: var(--primary);
     padding: 2rem;
     transition: .3s ease;
+    z-index: 100;
 }
 
 .sidebar__top {
@@ -427,4 +428,91 @@ header.nav-active .sidebar__items ul li a.after::after {
 
 .tooltip span.active div {
     width: 5%;
+}
+
+main {
+    flex: 1;
+    color: #1f2027;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 20px;
+    width: 100%;
+}
+
+.pokeman-card {
+    --h2: #67645E;
+    --p: #5E5C58;
+    --h4: #55514C;
+    --type: #55514C;
+    position: relative;
+    margin-top: 1rem;
+    background-color: #FFFFFF;
+    display: flex;
+    min-width: 25%;
+    height: max-content;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.pokeman-card__stat {
+    position: absolute;
+    background-color: #fff;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+    top: -1.5rem;
+    z-index: 2;
+}
+
+.pokeman-card .height {
+    left: -1.5rem;
+}
+
+.pokeman-card .weight {
+    right: -1.5rem;
+}
+
+.pokeman-card__info {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding-top: 3.5rem;
+    padding-bottom: 1rem;
+    overflow: hidden;
+}
+
+.pokeman-card__info::before {
+    content: attr(data-number);
+    position: absolute;
+    font-size: 3rem;
+    font-family: 'nunito';
+    font-weight: bold;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+    background-color: var(--primary);
+    color: #5489d3;
+    padding: 1rem;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.pokeman-card__info h2 {
+    color: var(--h2);
+}
+.pokeman-card__info p {
+    color: var(--p);
+}
+.pokeman-card__info h2 {
+    color: var(--h4);
+}
+.pokeman-card__info .type {
+    color: var(--type);
 }
