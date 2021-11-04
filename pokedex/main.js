@@ -24,7 +24,7 @@ searchBtn.addEventListener('click', function () {
 searchbar.addEventListener('keyup', function (ev) {
     let query = ev.target.value.toLowerCase();
     // to reset the active tab's position on empty/clearing query
-    if(query === '') activeTab.style.transform = `translateY(0rem)`
+    activeTab.style.transform = `translateY(0rem)`
     var matchedLinks = []
     sidebar_links.forEach((link) => {
         if (link.parentElement.classList.contains('hide')) link.parentElement.classList.remove('hide')
