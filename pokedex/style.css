@@ -430,7 +430,7 @@ header.nav-active .sidebar__items ul li a.after::after {
     width: 5%;
 }
 
-main {
+.pokeman-container {
     flex: 1;
     color: #1f2027;
     padding: 2rem;
