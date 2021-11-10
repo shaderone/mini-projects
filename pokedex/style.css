@@ -436,9 +436,9 @@ header.nav-active .sidebar__items ul li a.after::after {
     padding: 2rem;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 50px;
     row-gap: 20px;
     width: 100%;
+    justify-content: space-around;
 }
 
 .pokeman-card {
@@ -449,7 +449,7 @@ header.nav-active .sidebar__items ul li a.after::after {
     position: relative;
     margin-top: 1rem;
     display: flex;
-    min-width: 25%;
+    min-width: 30%;
     height: max-content;
     justify-content: center;
     border-radius: 15px;
@@ -505,6 +505,10 @@ header.nav-active .sidebar__items ul li a.after::after {
     border-bottom-right-radius: 25px;
     color: #ffffff;
     background-color:var(--light);
+}
+
+.pokeman-card__info img {
+    max-width: 100%;
 }
 
 .pokeman-card__info h2 {
