@@ -148,6 +148,29 @@ const getPokeman = async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data);
+    createPokemonCard(data)
 }
+
+const createPokemonCard = (data) => {
+    const pokemonEl = document.createElement('div')
+    pokemonEl.classList.add('pokeman-card')
+
+    const name = data.name[0].toUpperCase() + data.name.slice(1)
+    const id = data.id.toString().padStart(3,'0')
+
+    const pokemonInnerEl = `
+        <span class="pokeman-card__stat height">${data.height}ft</span>
+        <div class="pokeman-card__info" data-number="#${id}">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png" alt="Balbasaur">
+            <h2 class="name">${name}</h2>
+            <h4 class="skill">Fighting . Psychic</h4>
+            <p class="type">Steadfast</p>
+        </div>
+        <span class="pokeman-card__stat weight">${data.weight}kg</span>
+    `
+    pokemonEl.innerHTML = pokemonInnerEl
+
+    document.querySelector('.pokeman-container').appendChild(pokemonEl)
+}
+
 fetchPokemons();
