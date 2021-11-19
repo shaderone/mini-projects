@@ -446,14 +446,26 @@ header.nav-active .sidebar__items ul li a.after::after {
     --p: #5E5C58;
     --h4: #55514C;
     --type: #55514C;
+    --afterBg: var(--bg-light);
     position: relative;
     margin-top: 1rem;
     display: flex;
     min-width: 30%;
-    height: max-content;
+    height: auto;
     justify-content: center;
     border-radius: 15px;
     background-color: #FFFFFF;
+}
+
+.pokeman-card::before {
+    content: '';
+    position: absolute;
+    background-color: rgb(236, 232, 232);
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
 }
 
 .pokeman-card__stat {
@@ -504,7 +516,7 @@ header.nav-active .sidebar__items ul li a.after::after {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     color: #ffffff;
-    background-color:var(--light);
+    background-color:var(--afterBg);
 }
 
 .pokeman-card__info img {
@@ -522,7 +534,7 @@ header.nav-active .sidebar__items ul li a.after::after {
 }
 .pokeman-card__info .ability {
     color: var(--type);
-    max-width: 90%;
+    max-width: 80%;
     margin: 0 auto;
     text-align: center;
 }
