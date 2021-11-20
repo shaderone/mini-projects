@@ -86,7 +86,7 @@ sidebar_links.forEach((item, index) => {
 })
 
 // element creation
-const pokeArr = `Normal Fire Water Grass Electric Ice Fighting Poison Ground Wings Psychic Bug Rock Ghost Dark Dragon Steel Fairy`.split(' ')
+const pokeArr = `Normal Fire Water Grass Electric Ice Fighting Poison Ground flying Psychic Bug Rock Ghost Dark Dragon Steel Fairy`.split(' ')
 const tooltip = document.querySelector('.tooltip')
 const sidebar = document.querySelector('.sidebar__items')
 
@@ -135,8 +135,13 @@ const colors = {
     psychic: '#eaeda1',
     flying: '#F5F5F5',
     fighting: '#E6E0D4',
-    normal: '#F5F5F5'
+    normal: '#F5F5F5',
+    dark: '#1B1212',
+    ghost: '#36454F',
+    steel: '#E2DFD2',
 }
+
+const main_types = Object.keys(colors)
 
 const fetchPokemons = async () => {
     for (let index = 1; index < pokemon_count; index++) {
@@ -149,22 +154,39 @@ const getPokeman = async (id) => {
     const res = await fetch(url)
     const data = await res.json()
     createPokemonCard(data)
+    //console.log(data.types)
+}
+
+function titleCase(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+        // You do not need to check if i is larger than splitStr length, as your for does that for you
+        // Assign it back to the array
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    // Directly return the joined string
+    return splitStr.join(' ');
 }
 
 const createPokemonCard = (data) => {
+    const pokeTypes = data.types.map(type => type.type.name)
+    const types = JSON.stringify(pokeTypes).replace(/["\[\]]/gi, '').split(',').join(' | ')
+    //Do the same for abilities
+    //const type = main_types.find(type => pokeTypes.indexOf(type) > -1)
     const pokemonEl = document.createElement('div')
     pokemonEl.classList.add('pokeman-card')
 
     const name = data.name[0].toUpperCase() + data.name.slice(1)
     const id = data.id.toString().padStart(3,'0')
 
+
     const pokemonInnerEl = `
         <span class="pokeman-card__stat height">${data.height}ft</span>
         <div class="pokeman-card__info" data-number="#${id}">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png" alt="Balbasaur">
             <h2 class="name">${name}</h2>
-            <h4 class="skill">Fighting . Psychic</h4>
-            <p class="type">Steadfast</p>
+            <h4 class="type">${titleCase(types)}</h4>
+            <p class="ability">Steadfast</p>
         </div>
         <span class="pokeman-card__stat weight">${data.weight}kg</span>
     `

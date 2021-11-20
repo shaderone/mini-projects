@@ -520,6 +520,6 @@ header.nav-active .sidebar__items ul li a.after::after {
 .pokeman-card__info h2 {
     color: var(--h4);
 }
-.pokeman-card__info .type {
+.pokeman-card__info .skill {
     color: var(--type);
 }
