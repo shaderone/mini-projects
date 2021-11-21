@@ -171,8 +171,10 @@ function titleCase(str) {
 const createPokemonCard = (data) => {
     const pokeTypes = data.types.map(type => type.type.name)
     const types = JSON.stringify(pokeTypes).replace(/["\[\]]/gi, '').split(',').join(' | ')
-    //Do the same for abilities
-    //const type = main_types.find(type => pokeTypes.indexOf(type) > -1)
+    
+    const pokeAblilities = data.abilities.map(ability => ability.ability.name)
+    abilities = JSON.stringify(pokeAblilities).replace(/["\[\]]/gi, '').split(',').join(' ⁌⁍ ')
+
     const pokemonEl = document.createElement('div')
     pokemonEl.classList.add('pokeman-card')
 
@@ -186,7 +188,7 @@ const createPokemonCard = (data) => {
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png" alt="Balbasaur">
             <h2 class="name">${name}</h2>
             <h4 class="type">${titleCase(types)}</h4>
-            <p class="ability">Steadfast</p>
+            <p class="ability">${titleCase(abilities)}</p>
         </div>
         <span class="pokeman-card__stat weight">${data.weight}kg</span>
     `
