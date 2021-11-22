@@ -122,23 +122,23 @@ function handleTooltip(elm, key) {
 const poke_container = document.querySelector('.poke-container')
 const pokemon_count = 150
 const colors = {
-    fire: '#FDDFDF',
-    grass: '#DEFDE0',
-    electric: '#FCF7DE',
-    water: '#DEF3FD',
-    ground: '#f4e7da',
+    fire: '#eccf71',
+    grass: '#84e8b3',
+    electric: '#ece671',
+    water: '#65b6e2',
+    ground: '#eca771',
     rock: '#d5d5d4',
-    fairy: '#fceaff',
-    poison: '#98d7a5',
-    bug: '#f8d5a3',
-    dragon: '#97b3e6',
-    psychic: '#eaeda1',
-    flying: '#F5F5F5',
-    fighting: '#E6E0D4',
-    normal: '#F5F5F5',
-    dark: '#1B1212',
-    ghost: '#36454F',
-    steel: '#E2DFD2',
+    fairy: '#ec71b8',
+    poison: '#ba71ec',
+    bug: '#ec718a',
+    dragon: '#ec7171',
+    psychic: '#71bbec',
+    flying: '#71e3ec',
+    fighting: '#ff3a3a',
+    normal: '#c3afaf',
+    dark: '#292828',
+    ghost: '#4c4343',
+    steel: '#a59c9c',
 }
 
 const main_types = Object.keys(colors)
@@ -178,9 +178,14 @@ const createPokemonCard = (data) => {
     const pokemonEl = document.createElement('div')
     pokemonEl.classList.add('pokeman-card')
 
+    const type = Object.keys(colors).find(type => pokeTypes.indexOf(type) > -1)
+    pokemonEl.style.setProperty('--afterBg', colors[type]) 
+    //console.log(colors[type])
+
     const name = data.name[0].toUpperCase() + data.name.slice(1)
     const id = data.id.toString().padStart(3,'0')
 
+    const pokemonContainer = document.querySelector('.pokeman-container')
 
     const pokemonInnerEl = `
         <span class="pokeman-card__stat height">${data.height}ft</span>
@@ -194,7 +199,7 @@ const createPokemonCard = (data) => {
     `
     pokemonEl.innerHTML = pokemonInnerEl
 
-    document.querySelector('.pokeman-container').appendChild(pokemonEl)
+    pokemonContainer.appendChild(pokemonEl)
 }
 
 fetchPokemons();
