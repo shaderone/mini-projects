@@ -1,4 +1,6 @@
-Contribute your web dev projects here.
+# Contribute your web dev projects here.
+
+#HACKTOBERFEST 
 
 # mini-projects
 50 unique customized mini web-dev projects 
