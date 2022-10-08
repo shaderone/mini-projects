@@ -1,3 +1,5 @@
+Contribute your web dev projects here.
+
 # mini-projects
 50 unique customized mini web-dev projects 
 
